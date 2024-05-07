@@ -24,9 +24,8 @@ public class TestSaveData : ZbSaveData
 //            }
 //        }
         ListDataTag listDataTag = (ListDataTag) compoundDataTag.Get("uuid");
-        foreach (var dataTag in listDataTag.TagList)
+        foreach (var uuid1 in listDataTag.TagList.Select(dataTag => new Guid(((CompoundDataTag)dataTag).GetByteArray("UUID"))))
         {
-            Guid uuid1 = new Guid(((CompoundDataTag)dataTag).GetByteArray("UUID"));
             uuid.Add(uuid1);
         }
         compoundDataTag1 = compoundDataTag;
@@ -74,6 +73,9 @@ public class TestSaveData : ZbSaveData
 
     protected override void ExceptionHandling(bool saveOrLoad, Exception exception, FileInfo fileInfo)
     {
-        Program.Logger.Error(SharpUtil.SharpUtil.GetExceptionMessage(exception));
+        if(saveOrLoad)
+            Program.logger.Error("Could save file " + fileInfo.Name + "\n" +SharpUtil.SharpUtil.GetExceptionMessage(exception));
+        else
+            Program.logger.Error("Could load file " + fileInfo.Name + "\n" +SharpUtil.SharpUtil.GetExceptionMessage(exception));
     }
 }

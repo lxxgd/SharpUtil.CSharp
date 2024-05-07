@@ -5,7 +5,7 @@ namespace SharpUtil;
 
 public static class StringUtil
 {
-    private static Random _random = new Random(); 
+    private static readonly Random _random = new(); 
     
     public static string FormatList<T>(List<T> list)
     {
@@ -79,11 +79,12 @@ public static class StringUtil
 
     public static string PrintDirectory(string path)
     {
+        Console.WriteLine(path);
         if (Directory.Exists(path))
         {
             return PrintDirectory(path, 0, "");
         }
-
+        Console.WriteLine("No Found Dir");
         return "";
     }
 
@@ -143,4 +144,29 @@ public static class StringUtil
         } 
         return sb.ToString();
     }
+    
+    public static string Formatting(string input, string[] chars, double delay)
+    {
+        StringBuilder sb = new(input.Length * 3);
+        if (delay <= 0.0D)
+        {
+            delay = 0.001D;
+        }
+        int offset = (int)Math.Floor(DateTime.Now.Ticks * delay) % chars.Length;
+        for (int i = 0; i < input.Length; ++i)
+        {
+            char c = input[i];
+            if (c != '\n')
+            {
+                sb.Append(chars[(chars.Length + i - offset) % chars.Length]);
+                sb.Append(c);
+            }
+            else
+            {
+                sb.Append(c);
+            }
+        }
+        return sb.ToString();
+    }
+
 }

@@ -1,23 +1,21 @@
 ﻿using System.CodeDom.Compiler;
-using System.Runtime.Serialization;
 using System.Text;
-using Microsoft.VisualBasic;
 
 namespace SharpUtil.Logging;
 
 public class SimpleLogger
 {
     public IndentedTextWriter LogWriter { get; }
-    public string Name { get;private set; }
-    public string Path { get;private set; }
-    public string FileName { get;private set; }
-    public StringBuilder HistoryLog { get;private set; }
+    public string Name { get; }
+    public string Path { get; }
+    public string FileName { get; }
+    public List<string> HistoryLog { get; }
     
     public SimpleLogger(string name, string path) {
         this.Name = name;
         this.Path = path;
         this.FileName = DateTime.Now.ToString("yyyy-M-dd--HH.mm.ss") + ".log";
-        this.HistoryLog = new StringBuilder();
+        this.HistoryLog = new List<string>();
         if (!Directory.Exists(Path))
         {
             Directory.CreateDirectory(Path);
@@ -37,11 +35,11 @@ public class SimpleLogger
     {
         string str = "["+ DateTime.Now + "] "
                      + "[" + Thread.CurrentThread.Name + "/" + Name + "] "
-                     + "[" + level.ToString()+ "] "
+                     + "[" + level+ "] "
                      + msg;
         LogWriter.WriteLine(str);
         LogWriter.Flush();
-        HistoryLog.Append(str).Append('\n');
+        HistoryLog.Add(str+'\n');
         Console.WriteLine(str);
         return str;
     }

@@ -1,4 +1,5 @@
 ﻿using SharpUtil;
+using SharpUtil.Command;
 using SharpUtil.Data.Tag;
 using SharpUtil.Logging;
 
@@ -6,12 +7,18 @@ namespace Test
 {
     public class Program
     {
-        private static TestSaveData data = new TestSaveData();
-        public static readonly SimpleLogger Logger = new SimpleLogger("Main","./logs/");
+        public static TestSaveData data = new TestSaveData();
+        public static readonly SimpleLogger logger = new SimpleLogger("Main","./logs/");
+        public static bool running;
+        public static readonly CommandManager commandManager = new CommandManager();
 
         private static void Main()
         {
             Thread.CurrentThread.Name = "main thread";
+            running = true;
+            commandManager.Register(new ExitCommand());
+            commandManager.Register(new PrintDirectoryCommand());
+            commandManager.Register(new PrintDataTagCommand());
             Console.WriteLine("Hello, World!");
             data.uuid.Add(new Guid("976c95e5-bae7-493c-a087-61158d75598a"));
             data.uuid.Add(new Guid("3d5d1df5-3c01-4ba7-9c34-e6c87b3bae9c"));
@@ -23,25 +30,12 @@ namespace Test
             data.Save();
             data = new TestSaveData();
             data.Load();
-            Console.WriteLine(data.anInt);
-            foreach (Guid guid in data.uuid)
+            while (running)
             {
-                Console.WriteLine(guid.ToString());
+                string? input =  Console.ReadLine();
+                if(!string.IsNullOrEmpty(input) && input[0] != ' ')
+                    commandManager.Execute(input);
             }
-            Console.WriteLine(DataTagUtil.GetRootCompoundTagTagTree("data.compoundDataTag1",data.compoundDataTag1));
-            string s = "a\nb\nc\nd";
-            Console.WriteLine(StringUtil.AddToLineHeader(s,"-"));
-            Console.WriteLine(StringUtil.PrintDirectory(@"F:\sp\SharpUtil\Test"));
-            Logger.Info("sss");
-            for (int i = 0; i < 10; i++)
-            {
-                Logger.Info("1:"+StringUtil.GetRandomString(10));
-            }
-            for (int i = 0; i < 100; i++)
-            {
-                Logger.Info("2:"+StringUtil.GetRandomString2(32));
-            }
-            Console.ReadLine();
         }
     }
 }

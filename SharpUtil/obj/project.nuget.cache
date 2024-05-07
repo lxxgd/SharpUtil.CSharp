@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "7AU4rlVUN7Cg+92d3gOMeQgYsgTnykCJNXv/ZmNg+DeP3n9AsByiANPecurle5Yn36hUWU115XfXkrg08QSBzg==",
+  "dgSpecHash": "a4w0+3AwVsLiKat8g2jtMSlPENyokB+Kn933UJjFvcDQs0kR298VYlhHnzCzjU0kZBRkGDF2xL1p0Gg89ufnlw==",
   "success": true,
   "projectFilePath": "F:\\sp\\SharpUtil\\SharpUtil\\SharpUtil.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\lxxgd.DESKTOP-2GL29GA\\.nuget\\packages\\system.commandline\\2.0.0-beta4.22272.1\\system.commandline.2.0.0-beta4.22272.1.nupkg.sha512"
+  ],
   "logs": []
 }
