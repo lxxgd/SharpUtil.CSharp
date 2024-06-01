@@ -27,11 +27,11 @@ public class CompoundDataTag: BaseDataTag
         while ((b = dataInput.ReadByte()) != 0)
         {
             ++c;
-            IDataTag tag;
+            IDataTag? tag;
             string name;
             name = dataInput.ReadString();
             tag = IDataTag.ReadTag(b,dataInput);
-            if(name!=null&&tag!=null)
+            if(name!=string.Empty&&tag!=null)
                 map.Add(name,tag);
         }
         return new CompoundDataTag(map);

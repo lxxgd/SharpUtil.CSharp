@@ -1,6 +1,4 @@
-﻿using System.Text;
-
-namespace SharpUtil;
+﻿namespace SharpUtil;
 
 public static class SharpUtil
 {

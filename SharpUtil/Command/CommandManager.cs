@@ -1,8 +1,4 @@
-﻿using System.CommandLine;
-using System.CommandLine.Parsing;
-using System.Text;
-
-namespace SharpUtil.Command;
+﻿namespace SharpUtil.Command;
 
 public class CommandManager
 {
@@ -16,7 +12,12 @@ public class CommandManager
 
     public virtual object? Execute(string? command)
     {
-        string[] args = command.TrimEnd().Split(' ', StringSplitOptions.None);
+        if (command == null)
+        {
+            Console.WriteLine("Unknown Command");
+            return null;
+        }
+        string[] args = command.TrimEnd().Split(' ');
         string name = args[0];
         args = args.Skip(1).ToArray();
         if (Debug)

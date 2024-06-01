@@ -1,11 +1,15 @@
-﻿using System.Security.Cryptography;
-using System.Text;
+﻿using System.Text;
 
 namespace SharpUtil;
 
 public static class StringUtil
 {
-    private static readonly Random _random = new(); 
+    private static readonly Random _random = new();
+
+    public static bool isNull(this string? str)
+    {
+        return str != null&&str != string.Empty;
+    }
     
     public static string FormatList<T>(List<T> list)
     {
@@ -88,10 +92,10 @@ public static class StringUtil
         return "";
     }
 
-    private static string PrintDirectory(string dirpath, int depth, string prefix)
+    private static string PrintDirectory(string dir_path, int depth, string prefix)
     {
         StringBuilder stringBuilder = new StringBuilder();
-        DirectoryInfo dif = new DirectoryInfo(dirpath);
+        DirectoryInfo dif = new DirectoryInfo(dir_path);
         if (depth == 0)
             stringBuilder.Append(prefix + dif.Name).Append('\n');
         else

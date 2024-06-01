@@ -25,7 +25,7 @@ public class ListDataTag: BaseDataTag
         int size = dataInput.ReadInt32();
         List<IDataTag> tagList = new List<IDataTag>(size);
         for (int i = 0; i < size; i++) {
-            IDataTag tag;
+            IDataTag? tag;
             byte b = dataInput.ReadByte();
             tag = IDataTag.ReadTag(b,dataInput);
             if(tag!=null)

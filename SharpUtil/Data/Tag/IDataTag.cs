@@ -21,15 +21,15 @@ public interface IDataTag
     byte GetTagType();
     object GetValue();
     
-    static IDataTag ReadTag(byte b, BinaryReader dataInput) {
-         IDataTag tag = null;
+    static IDataTag? ReadTag(byte b, BinaryReader dataInput) {
+        IDataTag? tag = null;
         if(b == COMPOUND_DATA_TAG){
             tag = CompoundDataTag.Read(dataInput);
-        }else if(b == INT_DATA_TAG){
+        } else if(b == INT_DATA_TAG){
             tag = IntDataTag.Read(dataInput);
         } else if (b == INT_ARRAY_DATA_TAG) {
             tag = IntArrayDataTag.Read(dataInput);
-        }else if (b == LIST_DATA_TAG) {
+        } else if (b == LIST_DATA_TAG) {
             tag = ListDataTag.Read(dataInput);
         } else if (b == STRING_DATA_TAG) {
             tag = StringDataTag.Read(dataInput);
@@ -43,8 +43,7 @@ public interface IDataTag
             tag = DoubleDataTag.Read(dataInput);
         } else if (b == BYTE_DATA_TAG) {
             tag = ByteDataTag.Read(dataInput);
-        }
-        else if (b == BYTE_ARRAY_DATA_TAG)
+        } else if (b == BYTE_ARRAY_DATA_TAG)
         {
             tag = ByteArrayDataTag.Read(dataInput);
         }
@@ -53,7 +52,7 @@ public interface IDataTag
     }
      
     static void GetTagTreeNode(StringBuilder stringBuilder, IDataTag dataTag,string name) {
-        if(name!=null)
+        if(!name.isNull())
             stringBuilder.Append('[').Append(dataTag.GetType().Name).Append("] ").Append(name).Append(' ').Append(dataTag).Append('\n');
         else
             stringBuilder.Append('[').Append(dataTag.GetType().Name).Append("] ").Append(dataTag).Append('\n');
