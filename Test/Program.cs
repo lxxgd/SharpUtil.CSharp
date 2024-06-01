@@ -29,6 +29,7 @@ namespace Test
             data.str = "aaa";
             data.Save();
             data = new TestSaveData();
+            logger.Info(StringUtil.GetRandomString2(32));
             data.Load();
             while (running)
             {
