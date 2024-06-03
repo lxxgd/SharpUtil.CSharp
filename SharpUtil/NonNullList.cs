@@ -7,11 +7,17 @@ using System.Threading.Tasks;
 
 namespace SharpUtil
 {
+    /// <summary>
+    /// 非空列表，不会包含Null元素，具有默认值
+    /// </summary>
+    /// <typeparam name="E"></typeparam>
     public class NonNullList<E> : IList<E>
     {
         public List<E> list;
         public E defaultValue;
 
+        /// <param name="size">列表大小</param>
+        /// <param name="defaultValue">元素默认值</param>
         public NonNullList(int size,E defaultValue) 
         {
             ValidateUtil.RequireNonNull(defaultValue);
@@ -22,9 +28,12 @@ namespace SharpUtil
             this.defaultValue = defaultValue;
         }
 
+        /// <param name="defaultValue">元素默认值</param>
+        /// <param name="e">用来填充的数组</param>
         public NonNullList(E defaultValue, params E[] e)
         {
             ValidateUtil.RequireNonNull(defaultValue);
+            ValidateUtil.NoNullElementsWithException(e);
             this.list = new List<E>(e);
             this.defaultValue = defaultValue;
 
