@@ -6,8 +6,17 @@ using System.Threading.Tasks;
 
 namespace SharpUtil
 {
+    /// <summary>
+    /// 验证数据的实用类
+    /// </summary>
     public static class ValidateUtil
     {
+        /// <summary>
+        /// 验证数组是否包含Null值
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="array">要验证的数组</param>
+        /// <returns>是否包含Null值</returns>
         public static bool NoNullElements<T>(T[] array)
         {
             RequireNonNull(array);
@@ -21,7 +30,13 @@ namespace SharpUtil
             return true;
         }
 
-        public static bool NoNullElements<T>(ICollection<T> enumerable)
+        /// <summary>
+        /// 验证集合是否包含Null值
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="enumerable">要验证的集合</param>
+        /// <returns>是否包含Null值</returns>
+        public static bool NoNullElements<T>(IEnumerable<T> enumerable)
         {
             RequireNonNull(enumerable);
 
@@ -34,6 +49,12 @@ namespace SharpUtil
             return true;
         }
 
+        /// <summary>
+        /// 验证数组是否包含Null值，如果包含，则抛出异常
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="array">要验证的数组</param>
+        /// <returns>原数组</returns>
         public static T[] NoNullElementsWithException<T>(T[] array)
         {
             RequireNonNull(array);
@@ -47,6 +68,12 @@ namespace SharpUtil
             return array;
         }
 
+        /// <summary>
+        /// 验证集合是否包含Null值，如果包含，则抛出异常
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="enumerable">要验证的集合</param>
+        /// <returns>原集合</returns>
         public static IEnumerable<T> NoNullElementsWithException<T>(IEnumerable<T> enumerable)
         {
             RequireNonNull(enumerable);
@@ -63,6 +90,17 @@ namespace SharpUtil
             return enumerable;
         }
 
+        /// <summary>
+        /// 验证对象是否为Null，如果为Null，则抛出异常
+        /// </summary>
+        /// <param name="obj">
+        /// 要验证的对象
+        /// </param>
+        /// <param name="message">
+        /// 异常信息
+        /// </param>
+        /// <returns>原对象</returns>
+        /// <exception cref="NullReferenceException"></exception>
         public static object RequireNonNull(object? obj, string? message)
         {
             if (obj == null)
@@ -72,12 +110,27 @@ namespace SharpUtil
             return obj;
         }
 
+        /// <summary>
+        /// 验证对象是否为Null，如果为Null，则抛出异常
+        /// </summary>
+        /// <param name="obj">
+        /// 要验证的对象
+        /// </param>
+        /// <returns>原对象</returns>
+        /// <exception cref="NullReferenceException"></exception>
         public static object RequireNonNull(object? obj)
         {
             if (obj == null) throw new NullReferenceException();
             return obj;
         }
 
+        /// <summary>
+        /// 验证指定下标是否在数组的范围内
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="array">要验证的数组</param>
+        /// <param name="index">要验证的下标</param>
+        /// <returns>是否在范围内</returns>
         public static bool ValidIndex<T>(T[] array, int index)
         {
             RequireNonNull(array);
@@ -88,6 +141,12 @@ namespace SharpUtil
                 return false;
         }
 
+        /// <summary>
+        /// 验证指定下标是否在数组的范围内，如果不在，则抛出异常
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="array">要验证的数组</param>
+        /// <param name="index">要验证的下标</param>
         public static T[] ValidIndexWithException<T>(T[] array, int index)
         {
             RequireNonNull(array);
@@ -98,6 +157,13 @@ namespace SharpUtil
                 throw new IndexOutOfRangeException($"The validated array index is invalid: {index}");
         }
 
+        /// <summary>
+        /// 验证指定下标是否在集合的范围内
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="collection">要验证的集合</param>
+        /// <param name="index">要验证的下标</param>
+        /// <returns>是否在范围内</returns>
         public static bool ValidIndex<T>(ICollection<T> collection, int index)
         {
             RequireNonNull(collection);
@@ -108,6 +174,12 @@ namespace SharpUtil
                 return false;
         }
 
+        /// <summary>
+        /// 验证指定下标是否在集合的范围内，如果不在，则抛出异常
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="collection">要验证的集合</param>
+        /// <param name="index">要验证的下标</param>
         public static ICollection<T> ValidIndexWithException<T>(ICollection<T> collection, int index)
         {
             RequireNonNull(collection);
