@@ -3,7 +3,7 @@ using SharpUtil.Data.Tag;
 
 namespace Test;
 
-public class TestSaveData : ZbSaveData
+public class TestSaveData : SimpleSaveData
 {
     public List<Guid> uuid = new List<Guid>();
     public int anInt;
@@ -12,6 +12,10 @@ public class TestSaveData : ZbSaveData
     public CompoundDataTag compoundDataTag1;
     public CompoundDataTag compoundDataTag2;
     public string str;
+
+    public TestSaveData() : base(AppDomain.CurrentDomain.BaseDirectory, "test")
+    {
+    }
     
     protected override void Read(BinaryReader datainputstream, FileInfo file)
     {
@@ -61,14 +65,6 @@ public class TestSaveData : ZbSaveData
         compoundDataTag.PutBoolean("Boolean!",true);
         compoundDataTag.PutByte("Byte!",byte.MaxValue);
         compoundDataTag.Write(dataOutputStream);
-    }
-    
-    public void Save(){
-        Save(AppDomain.CurrentDomain.BaseDirectory,"test");
-    }
-
-    public void Load(){
-        Load(AppDomain.CurrentDomain.BaseDirectory,"test");
     }
 
     protected override void ExceptionHandling(bool saveOrLoad, Exception exception, FileInfo fileInfo)

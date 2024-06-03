@@ -31,12 +31,28 @@ namespace Test
             data = new TestSaveData();
             logger.Info(StringUtil.GetRandomString2(32));
             data.Load();
+            try
+            {
+                string[] strings = new string[] { "s", null };  
+                ValidateUtil.NoNullElements(strings);
+            }
+            catch(Exception ex) 
+            {
+                logger.Error(ex.GetExceptionMessage());
+            }
             while (running)
             {
                 string? input =  Console.ReadLine();
                 if(!string.IsNullOrEmpty(input) && input[0] != ' ')
                     commandManager.Execute(input);
             }
+        }
+
+        struct Test 
+        {
+            private int max;
+
+            public Test() { this.max = 16;}
         }
     }
 }

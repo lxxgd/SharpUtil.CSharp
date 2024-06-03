@@ -4,8 +4,8 @@ public static class SharpUtil
 {
     public static bool DebugInfo = false;
 
-    public static string GetExceptionMessage(Exception exception)
+    public static string GetExceptionMessage(this Exception exception)
     {
-        return exception.Message + "\n" + exception.StackTrace;
+        return exception.GetType().FullName + " : " + exception.Message + "\n" + exception.StackTrace;
     }
 }

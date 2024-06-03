@@ -1,4 +1,5 @@
 ﻿using System.CodeDom.Compiler;
+using System.Diagnostics;
 using System.Text;
 
 namespace SharpUtil.Logging;
@@ -41,6 +42,7 @@ public class SimpleLogger
         LogWriter.Flush();
         HistoryLog.Add(str+'\n');
         Console.WriteLine(str);
+        System.Diagnostics.Debug.WriteLine(str);
         return str;
     }
     
