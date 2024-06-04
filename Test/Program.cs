@@ -33,8 +33,7 @@ namespace Test
             data.Load();
             try
             {
-                string[] strings = new string[] { "s", null };  
-                ValidateUtil.NoNullElements(strings);
+                
             }
             catch(Exception ex) 
             {
