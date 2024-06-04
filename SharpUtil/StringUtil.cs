@@ -56,13 +56,14 @@ public static class StringUtil
             else if (i== strings.Length-1)
                 s = end + strings[i];
             else
-                s = start + strings[i];
+                s = symbol + strings[i];
             stringBuilder.Append(s).Append('\n');
         }
         return stringBuilder.ToString();
     }
 
     public static string AddToLineHeaderFix(string str,string symbol,string start,string end){
+        str = str.Trim();
         string[] strings = str.Split("\n");
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < strings.Length; i++) {
@@ -74,7 +75,7 @@ public static class StringUtil
                 else if (i== strings.Length-1)
                     s = end + strings[i];
                 else
-                    s = start + strings[i];
+                    s = symbol + strings[i];
                 stringBuilder.Append(s).Append('\n');
             }
         }

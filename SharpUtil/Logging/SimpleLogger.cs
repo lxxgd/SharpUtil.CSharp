@@ -11,6 +11,7 @@ public class SimpleLogger
     public string Path { get; }
     public string FileName { get; }
     public List<string> HistoryLog { get; }
+    public int maxLogs = 10;
     
     public SimpleLogger(string name, string path) {
         this.Name = name;
@@ -22,7 +23,7 @@ public class SimpleLogger
             Directory.CreateDirectory(Path);
         }
         string[] logs = Directory.EnumerateFiles(Path, "*.log").ToArray();
-        for (int i = 0; i < logs.Length - 10; i++)
+        for (int i = 0; i < logs.Length - maxLogs; i++)
         {
             File.Delete(logs[i]);
         }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -210,6 +211,76 @@ namespace SharpUtil
             ValidateUtil.RequireNonNull(type);
             MethodInfo info = GetStaticMethod(type,methodName,parameters);
             return info.Invoke(null, args);
+        }
+
+        public static bool TryGetAttributes<T>(this MemberInfo memberInfo,out IEnumerable<T>? attribute) where T : Attribute
+        {
+            IEnumerable<T>? a = memberInfo.GetCustomAttributes<T>();
+            attribute = a;
+            if (a == null)
+                return false; 
+            return true;
+        }
+
+        public static bool TryGetAttributes<T>(this Assembly assembly, out IEnumerable<T>? attribute) where T : Attribute
+        {
+            IEnumerable<T>? a = assembly.GetCustomAttributes<T>();
+            attribute = a;
+            if (a == null)
+                return false;
+            return true;
+        }
+
+        public static bool TryGetAttributes<T>(this Module module, out IEnumerable<T>? attribute) where T : Attribute
+        {
+            IEnumerable<T>? a = module.GetCustomAttributes<T>();
+            attribute = a;
+            if (a == null)
+                return false;
+            return true;
+        }
+
+        public static bool TryGetAttributes<T>(this ParameterInfo parameterInfo, out IEnumerable<T>? attribute) where T : Attribute
+        {
+            IEnumerable<T>? a = parameterInfo.GetCustomAttributes<T>();
+            attribute = a;
+            if (a == null)
+                return false;
+            return true;
+        }
+
+        public static bool TryGetAttribute<T>(this MemberInfo memberInfo, out T? attribute) where T : Attribute
+        {
+            T? a = memberInfo.GetCustomAttribute<T>();
+            attribute = a;
+            if (a == null)
+                return false;
+            return true;
+        }
+
+        public static bool TryGetAttribute<T>(this Module module, out T? attribute) where T : Attribute
+        {
+            T? a = module.GetCustomAttribute<T>();
+            attribute = a;
+            if (a == null)
+                return false;
+            return true;
+        }
+        public static bool TryGetAttribute<T>(this Assembly assembly, out T? attribute) where T : Attribute
+        {
+            T? a = assembly.GetCustomAttribute<T>();
+            attribute = a;
+            if (a == null)
+                return false;
+            return true;
+        }
+        public static bool TryGetAttribute<T>(this ParameterInfo parameterInfo, out T? attribute) where T : Attribute
+        {
+            T? a = parameterInfo.GetCustomAttribute<T>();
+            attribute = a;
+            if (a == null)
+                return false;
+            return true;
         }
     }
 }
