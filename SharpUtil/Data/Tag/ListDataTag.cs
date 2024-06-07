@@ -28,7 +28,9 @@ public class ListDataTag: BaseDataTag
             IDataTag? tag;
             byte b = dataInput.ReadByte();
             tag = IDataTag.ReadTag(b,dataInput);
-            if(tag!=null)
+            if (tag == null)
+                Console.WriteLine($"Unkown DataTag ID: {b}");
+            else 
                 tagList.Add(tag);
         }
         return new ListDataTag(tagList);

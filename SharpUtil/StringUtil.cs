@@ -24,6 +24,7 @@ public static class StringUtil
     }
 
     public static string AddToLineHeader(string str,string symbol){
+        str = str.Trim();
         string[] strings = str.Split("\n");
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < strings.Length; i++) {
@@ -87,7 +88,7 @@ public static class StringUtil
         Console.WriteLine(path);
         if (Directory.Exists(path))
         {
-            return PrintDirectory(path, 0, "");
+            return PrintDirectory(path, 0, " ");
         }
         Console.WriteLine("No Found Dir");
         return "";

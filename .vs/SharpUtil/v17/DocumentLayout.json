@@ -3,24 +3,8 @@
   "WorkspaceRootPath": "F:\\sp\\SharpUtil\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CA938BD7-0734-451B-B39A-3A7DAE0A6A90}|SharpUtil\\SharpUtil.csproj|f:\\sp\\sharputil\\sharputil\\stringutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CA938BD7-0734-451B-B39A-3A7DAE0A6A90}|SharpUtil\\SharpUtil.csproj|solutionrelative:sharputil\\stringutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CA938BD7-0734-451B-B39A-3A7DAE0A6A90}|SharpUtil\\SharpUtil.csproj|f:\\sp\\sharputil\\sharputil\\reflectionutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CA938BD7-0734-451B-B39A-3A7DAE0A6A90}|SharpUtil\\SharpUtil.csproj|solutionrelative:sharputil\\reflectionutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CA938BD7-0734-451B-B39A-3A7DAE0A6A90}|SharpUtil\\SharpUtil.csproj|f:\\sp\\sharputil\\sharputil\\data\\tag\\datatagutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CA938BD7-0734-451B-B39A-3A7DAE0A6A90}|SharpUtil\\SharpUtil.csproj|solutionrelative:sharputil\\data\\tag\\datatagutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CA938BD7-0734-451B-B39A-3A7DAE0A6A90}|SharpUtil\\SharpUtil.csproj|f:\\sp\\sharputil\\sharputil\\validateutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CA938BD7-0734-451B-B39A-3A7DAE0A6A90}|SharpUtil\\SharpUtil.csproj|solutionrelative:sharputil\\validateutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{46D898F8-4627-4FDC-A393-E611AF15B1D1}|Test\\Test.csproj|f:\\sp\\sharputil\\test\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{46D898F8-4627-4FDC-A393-E611AF15B1D1}|Test\\Test.csproj|solutionrelative:test\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CA938BD7-0734-451B-B39A-3A7DAE0A6A90}|SharpUtil\\SharpUtil.csproj|f:\\sp\\sharputil\\sharputil\\logging\\simplelogger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA938BD7-0734-451B-B39A-3A7DAE0A6A90}|SharpUtil\\SharpUtil.csproj|solutionrelative:sharputil\\logging\\simplelogger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -58,67 +42,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DataTagUtil.cs",
-              "DocumentMoniker": "F:\\sp\\SharpUtil\\SharpUtil\\Data\\Tag\\DataTagUtil.cs",
-              "RelativeDocumentMoniker": "SharpUtil\\Data\\Tag\\DataTagUtil.cs",
-              "ToolTip": "F:\\sp\\SharpUtil\\SharpUtil\\Data\\Tag\\DataTagUtil.cs",
-              "RelativeToolTip": "SharpUtil\\Data\\Tag\\DataTagUtil.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAlAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-04T12:03:43.649Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "StringUtil.cs",
-              "DocumentMoniker": "F:\\sp\\SharpUtil\\SharpUtil\\StringUtil.cs",
-              "RelativeDocumentMoniker": "SharpUtil\\StringUtil.cs",
-              "ToolTip": "F:\\sp\\SharpUtil\\SharpUtil\\StringUtil.cs*",
-              "RelativeToolTip": "SharpUtil\\StringUtil.cs*",
-              "ViewState": "AQIAADgAAAAAAAAAAAAgwEAAAAAVAAAA",
+              "Title": "SimpleLogger.cs",
+              "DocumentMoniker": "F:\\sp\\SharpUtil\\SharpUtil\\Logging\\SimpleLogger.cs",
+              "RelativeDocumentMoniker": "SharpUtil\\Logging\\SimpleLogger.cs",
+              "ToolTip": "F:\\sp\\SharpUtil\\SharpUtil\\Logging\\SimpleLogger.cs",
+              "RelativeToolTip": "SharpUtil\\Logging\\SimpleLogger.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAmwCsAAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-04T12:02:14.188Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ValidateUtil.cs",
-              "DocumentMoniker": "F:\\sp\\SharpUtil\\SharpUtil\\ValidateUtil.cs",
-              "RelativeDocumentMoniker": "SharpUtil\\ValidateUtil.cs",
-              "ToolTip": "F:\\sp\\SharpUtil\\SharpUtil\\ValidateUtil.cs",
-              "RelativeToolTip": "SharpUtil\\ValidateUtil.cs",
-              "ViewState": "AQIAAK8AAAAAAAAAAAAuwAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-04T12:02:11.225Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ReflectionUtil.cs",
-              "DocumentMoniker": "F:\\sp\\SharpUtil\\SharpUtil\\ReflectionUtil.cs",
-              "RelativeDocumentMoniker": "SharpUtil\\ReflectionUtil.cs",
-              "ToolTip": "F:\\sp\\SharpUtil\\SharpUtil\\ReflectionUtil.cs",
-              "RelativeToolTip": "SharpUtil\\ReflectionUtil.cs",
-              "ViewState": "AQIAABIBAAAAAAAAAAAuwBwBAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-04T11:48:07.046Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Program.cs",
-              "DocumentMoniker": "F:\\sp\\SharpUtil\\Test\\Program.cs",
-              "RelativeDocumentMoniker": "Test\\Program.cs",
-              "ToolTip": "F:\\sp\\SharpUtil\\Test\\Program.cs",
-              "RelativeToolTip": "Test\\Program.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAAAxwCMAAAASAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-04T05:37:22.978Z",
+              "WhenOpened": "2024-06-07T11:13:20.535Z",
               "EditorCaption": ""
             }
           ]

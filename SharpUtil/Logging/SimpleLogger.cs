@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SharpUtil.Logging;
 
-public class SimpleLogger
+public class SimpleLogger : IDisposable
 {
     public IndentedTextWriter LogWriter { get; }
     public string Name { get; }
@@ -27,7 +27,7 @@ public class SimpleLogger
         {
             File.Delete(logs[i]);
         }
-        this.LogWriter = new IndentedTextWriter(new StreamWriter(File.Open(Path + FileName,FileMode.Create))
+        this.LogWriter = new IndentedTextWriter(new StreamWriter(File.Open(System.IO.Path.Combine(Path,FileName),FileMode.Append))
         {
             AutoFlush = true
         });
@@ -36,12 +36,12 @@ public class SimpleLogger
     public string Log(string? msg, LogLevel level)
     {
         string str = "["+ DateTime.Now + "] "
-                     + "[" + Thread.CurrentThread.Name + "/" + Name + "] "
-                     + "[" + level+ "] "
-                     + msg;
+                   + "[" + Thread.CurrentThread.Name + "/" + Name + "] "
+                   + "[" + level+ "] "
+                   + msg;
         LogWriter.WriteLine(str);
         LogWriter.Flush();
-        HistoryLog.Add(str+'\n');
+        HistoryLog.Add(str);
         Console.WriteLine(str);
         System.Diagnostics.Debug.WriteLine(str);
         return str;
@@ -113,5 +113,11 @@ public class SimpleLogger
 
     public string Fail(string s,params object[] args){
         return Fail(string.Format(s,args));
+    }
+
+    public void Dispose()
+    {
+        LogWriter.Close();
+        ((IDisposable)LogWriter).Dispose();
     }
 }

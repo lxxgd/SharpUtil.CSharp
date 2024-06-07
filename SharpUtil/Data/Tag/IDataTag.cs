@@ -16,41 +16,49 @@ public interface IDataTag
     const byte DOUBLE_DATA_TAG = 9;
     const byte BYTE_DATA_TAG = 10;
     const byte BYTE_ARRAY_DATA_TAG = 11;
-    
+    const byte DECIMAL_DATA_TAG = 12;
+
+    public delegate IDataTag read_data_tag_delegate(byte b, BinaryReader binaryReader);
+    private static readonly Dictionary<byte, read_data_tag_delegate> read_Data_Tag_Delegates = [];
+
     void Write(BinaryWriter dataOutput);
     byte GetTagType();
     object GetValue();
+
+    static IDataTag() 
+    {
+        RegisterDataTag(COMPOUND_DATA_TAG, (id, dataInput) => CompoundDataTag.Read(dataInput));
+        RegisterDataTag(INT_DATA_TAG, (id, dataInput) => IntDataTag.Read(dataInput));
+        RegisterDataTag(INT_ARRAY_DATA_TAG, (id, dataInput) => IntArrayDataTag.Read(dataInput));
+        RegisterDataTag(LIST_DATA_TAG, (id, dataInput) => ListDataTag.Read(dataInput));
+        RegisterDataTag(STRING_DATA_TAG, (id, dataInput) => StringDataTag.Read(dataInput));
+        RegisterDataTag(BOOLEAN_DATA_TAG, (id, dataInput) => BooleanDataTag.Read(dataInput));
+        RegisterDataTag(LONG_DATA_TAG, (id, dataInput) => LongDataTag.Read(dataInput));
+        RegisterDataTag(FLOAT_DATA_TAG, (id, dataInput) => FloatDataTag.Read(dataInput));
+        RegisterDataTag(DOUBLE_DATA_TAG, (id, dataInput) => DoubleDataTag.Read(dataInput));
+        RegisterDataTag(BYTE_DATA_TAG, (id, dataInput) => ByteDataTag.Read(dataInput));
+        RegisterDataTag(BYTE_ARRAY_DATA_TAG, (id, dataInput) => ByteArrayDataTag.Read(dataInput));
+        RegisterDataTag(DECIMAL_DATA_TAG, (id, dataInput) => DecimalDataTag.Read(dataInput));
+    }
     
     static IDataTag? ReadTag(byte b, BinaryReader dataInput) {
         IDataTag? tag = null;
-        if(b == COMPOUND_DATA_TAG){
-            tag = CompoundDataTag.Read(dataInput);
-        } else if(b == INT_DATA_TAG){
-            tag = IntDataTag.Read(dataInput);
-        } else if (b == INT_ARRAY_DATA_TAG) {
-            tag = IntArrayDataTag.Read(dataInput);
-        } else if (b == LIST_DATA_TAG) {
-            tag = ListDataTag.Read(dataInput);
-        } else if (b == STRING_DATA_TAG) {
-            tag = StringDataTag.Read(dataInput);
-        } else if (b == BOOLEAN_DATA_TAG) {
-            tag = BooleanDataTag.Read(dataInput);
-        } else if (b == LONG_DATA_TAG) {
-            tag = LongDataTag.Read(dataInput);
-        } else if (b == FLOAT_DATA_TAG) {
-            tag = FloatDataTag.Read(dataInput);
-        } else if (b == DOUBLE_DATA_TAG) {
-            tag = DoubleDataTag.Read(dataInput);
-        } else if (b == BYTE_DATA_TAG) {
-            tag = ByteDataTag.Read(dataInput);
-        } else if (b == BYTE_ARRAY_DATA_TAG)
+
+        if(b > read_Data_Tag_Delegates.Count) 
         {
-            tag = ByteArrayDataTag.Read(dataInput);
+            throw new ArgumentException($"Unkown DataTag ID: {b}");
         }
+        tag = read_Data_Tag_Delegates[b]?.Invoke(b, dataInput);
 
         return tag;
     }
-     
+
+    public static void RegisterDataTag(byte id,read_data_tag_delegate read_Data_Tag_Delegate) 
+    {
+        read_Data_Tag_Delegates.Add(id,read_Data_Tag_Delegate);
+    }
+
+
     static void GetTagTreeNode(StringBuilder stringBuilder, IDataTag dataTag,string name) {
         if(!name.isNull())
             stringBuilder.Append('[').Append(dataTag.GetType().Name).Append("] ").Append(name).Append(' ').Append(dataTag).Append('\n');

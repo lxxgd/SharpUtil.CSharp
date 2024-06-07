@@ -5,7 +5,6 @@ namespace SharpUtil.Data.Tag;
 public class CompoundDataTag: BaseDataTag
 {
     public Dictionary<string, IDataTag> Tags;
-    private static int c;
 
     public CompoundDataTag(Dictionary<string, IDataTag> value) {
         this.Tags = value;
@@ -21,16 +20,17 @@ public class CompoundDataTag: BaseDataTag
         return IDataTag.COMPOUND_DATA_TAG;
     }
     
-     public static CompoundDataTag Read(BinaryReader dataInput) {
-        Dictionary<string, IDataTag> map = new Dictionary<string, IDataTag>();
+    public static CompoundDataTag Read(BinaryReader dataInput) {
+        Dictionary<string, IDataTag> map = [];
         byte b;
         while ((b = dataInput.ReadByte()) != 0)
         {
-            ++c;
             IDataTag? tag;
             string name;
             name = dataInput.ReadString();
             tag = IDataTag.ReadTag(b,dataInput);
+            if (tag == null)
+                Console.WriteLine($"Unkown DataTag ID: {b}");
             if(name!=string.Empty&&tag!=null)
                 map.Add(name,tag);
         }
@@ -38,7 +38,7 @@ public class CompoundDataTag: BaseDataTag
     }
      
     public string GetTagTree(){
-        StringBuilder stringBuilder = new StringBuilder();
+        StringBuilder stringBuilder = new();
         foreach (var key in Tags.Keys)
         {
             IDataTag.GetTagTreeNode(stringBuilder, Tags[key],key);
@@ -152,7 +152,18 @@ public class CompoundDataTag: BaseDataTag
     public byte GetByte(string key){
         return ((ByteDataTag) Tags[key]).Value;
     }
-    
+
+    public void PutDecimal(string key, decimal v)
+    {
+        DecimalDataTag tag = new DecimalDataTag(v);
+        Tags.Add(key, tag);
+    }
+
+    public decimal GetDecimal(string key)
+    {
+        return ((DecimalDataTag)Tags[key]).value;
+    }
+
     public void PutByteArray(string key,byte[] v){
         ByteArrayDataTag intArrayDataTag = new ByteArrayDataTag(v);
         Tags.Add(key,intArrayDataTag);

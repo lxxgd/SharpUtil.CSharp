@@ -27,6 +27,7 @@ namespace Test
             data.anInt2 = 666;
             data.anInt3 = int.MaxValue;
             data.str = "aaa";
+            data.de = 15;
             data.Save();
             data = new TestSaveData();
             logger.Info(StringUtil.GetRandomString2(32));

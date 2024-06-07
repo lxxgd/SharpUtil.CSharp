@@ -10,6 +10,11 @@ public class PrintDirectoryCommand : Command
     public override string CommandName => "pd";
     public override object? Execute(string[] args)
     {
+        if(args.Length == 0)
+        {
+            Console.WriteLine("未输入路径");
+            return null; 
+        }
         Console.WriteLine(StringUtil.PrintDirectory(args[0]));
         return null;
     }

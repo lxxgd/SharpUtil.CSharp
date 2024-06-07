@@ -23,13 +23,8 @@ public class ByteArrayDataTag : BaseDataTag
         return new ByteArrayDataTag(v);
     }
 
-    public override Object GetValue()
+    public override object GetValue()
     {
-        List<byte> list = new List<byte>();
-        foreach (var variable in Value)
-        {
-            list.Add(variable);
-        }
         return StringUtil.FormatArray(Value);
     }
 

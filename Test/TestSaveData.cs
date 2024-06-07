@@ -12,6 +12,7 @@ public class TestSaveData : SimpleSaveData
     public CompoundDataTag compoundDataTag1;
     public CompoundDataTag compoundDataTag2;
     public string str;
+    public decimal de;
 
     public TestSaveData() : base(AppDomain.CurrentDomain.BaseDirectory, "test")
     {
@@ -38,6 +39,8 @@ public class TestSaveData : SimpleSaveData
         anInt2 = compoundDataTag.GetInt("int2");
         anInt3 = compoundDataTag.GetInt("int3");
         str = compoundDataTag.GetString("str");
+        DecimalDataTag decimalDataTag = (DecimalDataTag)compoundDataTag.Get("de");
+        de = decimalDataTag.value;
     }
 
     protected override void Write(BinaryWriter dataOutputStream, FileInfo file)
@@ -64,6 +67,8 @@ public class TestSaveData : SimpleSaveData
         compoundDataTag.PutFloat("Float!",float.MaxValue);
         compoundDataTag.PutBoolean("Boolean!",true);
         compoundDataTag.PutByte("Byte!",byte.MaxValue);
+        DecimalDataTag decimalDataTag = new DecimalDataTag(de);
+        compoundDataTag.Put("de",decimalDataTag);
         compoundDataTag.Write(dataOutputStream);
     }
 
