@@ -60,7 +60,7 @@ public interface IDataTag
 
 
     static void GetTagTreeNode(StringBuilder stringBuilder, IDataTag dataTag,string name) {
-        if(!name.isNull())
+        if(!name.IsNull())
             stringBuilder.Append('[').Append(dataTag.GetType().Name).Append("] ").Append(name).Append(' ').Append(dataTag).Append('\n');
         else
             stringBuilder.Append('[').Append(dataTag.GetType().Name).Append("] ").Append(dataTag).Append('\n');

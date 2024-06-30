@@ -1,18 +1,19 @@
 ﻿namespace SharpUtil.Data.Tag;
 
-public class BooleanDataTag: BaseDataTag
+public class BooleanDataTag : BaseDataTag
 {
     public bool Value;
 
-    public BooleanDataTag(bool value) {
+    public BooleanDataTag(bool value)
+    {
         this.Value = value;
     }
-    
+
     public override byte GetTagType()
     {
         return IDataTag.BOOLEAN_DATA_TAG;
     }
-    
+
     public static BooleanDataTag Read(BinaryReader dataInput)
     {
         return new BooleanDataTag(dataInput.ReadBoolean());

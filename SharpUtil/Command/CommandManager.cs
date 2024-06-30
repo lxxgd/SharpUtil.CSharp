@@ -38,11 +38,11 @@ public class CommandManager
         Console.WriteLine("Unknown Command");
         return null;
     }
-    
+
     public void Register(Command command)
     {
         command.Owner = this;
-        if(!Commands.Contains(command))
+        if (!Commands.Contains(command))
             Commands.Add(command);
     }
 }

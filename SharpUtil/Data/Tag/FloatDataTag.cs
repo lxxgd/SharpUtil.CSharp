@@ -1,18 +1,19 @@
 ﻿namespace SharpUtil.Data.Tag;
 
-public class FloatDataTag: BaseDataTag
+public class FloatDataTag : BaseDataTag
 {
     public float Value;
 
-    public FloatDataTag(float value) {
+    public FloatDataTag(float value)
+    {
         this.Value = value;
     }
-    
+
     public override byte GetTagType()
     {
         return IDataTag.FLOAT_DATA_TAG;
     }
-    
+
     public static FloatDataTag Read(BinaryReader dataInput)
     {
         return new FloatDataTag(dataInput.ReadSingle());

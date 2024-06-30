@@ -14,7 +14,7 @@ public class HelpCommand : Command
         Console.WriteLine("Command List:");
         foreach (Command command in Owner.Commands)
         {
-            Console.WriteLine(command.CommandFormat + "        "+ command.CommandDescription);
+            Console.WriteLine(command.CommandFormat + "        " + command.CommandDescription);
             strings.Append(command.CommandFormat);
         }
         return strings;

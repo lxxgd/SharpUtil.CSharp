@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SharpUtil
+﻿namespace SharpUtil
 {
     /// <summary>
     /// 验证数据的实用类
@@ -188,6 +182,28 @@ namespace SharpUtil
                 return collection;
             else
                 throw new IndexOutOfRangeException($"The validated collection index is invalid: {index}");
+        }
+
+        public static bool IsValid(this float x)
+        {
+            if (float.IsNaN(x))
+            {
+                // NaN.
+                return false;
+            }
+
+            return !float.IsInfinity(x);
+        }
+
+        public static bool IsValid(this double x)
+        {
+            if (double.IsNaN(x))
+            {
+                // NaN.
+                return false;
+            }
+
+            return !double.IsInfinity(x);
         }
     }
 }

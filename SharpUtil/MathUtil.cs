@@ -3,22 +3,22 @@
     public static class MathUtil
     {
 
-        public static bool NotNaN(this double x) 
+        public static bool NotNaN(this double x)
         {
             return !double.IsNaN(x);
         }
 
-        public static bool IsNaN(this double x) 
+        public static bool IsNaN(this double x)
         {
-            return double.IsNaN(x); 
+            return double.IsNaN(x);
         }
 
-        public static bool NotInfinity(this double x) 
+        public static bool NotInfinity(this double x)
         {
-            return !double.IsInfinity(x); 
+            return !double.IsInfinity(x);
         }
 
-        public static bool IsInfinity(this double x) 
+        public static bool IsInfinity(this double x)
         {
             return double.IsInfinity(x);
         }
@@ -43,9 +43,9 @@
             return float.IsInfinity(x);
         }
 
-        public static bool Between(this double value, double a , double b) 
+        public static bool Between(this double value, double a, double b)
         {
-            return (value > a && value < b)||(value < a && value > b);
+            return (value > a && value < b) || (value < a && value > b);
         }
 
         public static bool Between(this float value, float a, float b)

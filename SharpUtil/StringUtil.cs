@@ -6,38 +6,42 @@ public static class StringUtil
 {
     private static readonly Random _random = new();
 
-    public static bool isNull(this string? str)
+    public static bool IsNull(this string? str)
     {
-        return str != null&&str != string.Empty;
+        return str != null && str != string.Empty;
     }
-    
+
     public static string FormatList<T>(List<T> list)
     {
         string formattedByteList = $"[{string.Join(", ", list.ToArray())}]";
         return formattedByteList;
     }
-    
+
     public static string FormatArray<T>(IEnumerable<T> list)
     {
         string formattedByteList = $"[{string.Join(", ", list)}]";
         return formattedByteList;
     }
 
-    public static string AddToLineHeader(string str,string symbol){
+    public static string AddToLineHeader(string str, string symbol)
+    {
         str = str.Trim();
         string[] strings = str.Split("\n");
         StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i < strings.Length; i++) {
+        for (int i = 0; i < strings.Length; i++)
+        {
             string s = symbol + strings[i];
             stringBuilder.Append(s).Append('\n');
         }
         return stringBuilder.ToString();
     }
 
-    public static string AddToLineHeaderFix(string str,string symbol){
+    public static string AddToLineHeaderFix(string str, string symbol)
+    {
         string[] strings = str.Split("\n");
         StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i < strings.Length; i++) {
+        for (int i = 0; i < strings.Length; i++)
+        {
             if (!strings[i].Equals(string.Empty))
             {
                 string s = symbol + strings[i];
@@ -47,14 +51,16 @@ public static class StringUtil
         return stringBuilder.ToString();
     }
 
-    public static string AddToLineHeader(string str,string symbol,string start,string end){
+    public static string AddToLineHeader(string str, string symbol, string start, string end)
+    {
         string[] strings = str.Split("\n");
         StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i < strings.Length; i++) {
+        for (int i = 0; i < strings.Length; i++)
+        {
             string s;
-            if(i==0)
+            if (i == 0)
                 s = start + strings[i];
-            else if (i== strings.Length-1)
+            else if (i == strings.Length - 1)
                 s = end + strings[i];
             else
                 s = symbol + strings[i];
@@ -63,17 +69,19 @@ public static class StringUtil
         return stringBuilder.ToString();
     }
 
-    public static string AddToLineHeaderFix(string str,string symbol,string start,string end){
+    public static string AddToLineHeaderFix(string str, string symbol, string start, string end)
+    {
         str = str.Trim();
         string[] strings = str.Split("\n");
         StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i < strings.Length; i++) {
+        for (int i = 0; i < strings.Length; i++)
+        {
             if (!strings[i].Equals(string.Empty))
             {
                 string s;
-                if(i==0)
+                if (i == 0)
                     s = start + strings[i];
-                else if (i== strings.Length-1)
+                else if (i == strings.Length - 1)
                     s = end + strings[i];
                 else
                     s = symbol + strings[i];
@@ -126,7 +134,7 @@ public static class StringUtil
 
         return stringBuilder.ToString();
     }
-    
+
     public static string GetRandomString(int length)
     {
         if (length <= 0)
@@ -141,16 +149,18 @@ public static class StringUtil
         }
         return s.ToString();
     }
-    
-    public static String GetRandomString2(int length) {
+
+    public static String GetRandomString2(int length)
+    {
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < length; i++) {
+        for (int i = 0; i < length; i++)
+        {
             long result = (_random.Next(93) + 33);
             sb.Append(((char)(int)result));
-        } 
+        }
         return sb.ToString();
     }
-    
+
     public static string Formatting(string input, string[] chars, double delay)
     {
         StringBuilder sb = new(input.Length * 3);

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Reflection;
 
 namespace SharpUtil
 {
@@ -66,10 +60,10 @@ namespace SharpUtil
         /// <returns>
         /// 字段的值
         /// </returns>
-        public static object? GetFieldValue(this object obj, string fieldName) 
+        public static object? GetFieldValue(this object obj, string fieldName)
         {
             ValidateUtil.RequireNonNull(obj);
-            FieldInfo? info = GetField(obj.GetType(),fieldName);
+            FieldInfo? info = GetField(obj.GetType(), fieldName);
             return info.GetValue(obj);
         }
 
@@ -85,7 +79,7 @@ namespace SharpUtil
         public static object? GetStaticFieldValue(this Type type, string fieldName)
         {
             ValidateUtil.RequireNonNull(type);
-            FieldInfo? info = GetStaticField(type,fieldName);
+            FieldInfo? info = GetStaticField(type, fieldName);
             return info.GetValue(null);
         }
 
@@ -104,7 +98,7 @@ namespace SharpUtil
         public static void SetFieldValue(this object obj, string fieldName, object? value)
         {
             ValidateUtil.RequireNonNull(obj);
-            FieldInfo? info = GetField(obj.GetType(),fieldName);
+            FieldInfo? info = GetField(obj.GetType(), fieldName);
             info.SetValue(obj, value);
         }
 
@@ -120,7 +114,7 @@ namespace SharpUtil
         public static void SetStaticFieldValue(this Type type, string fieldName, object? value)
         {
             ValidateUtil.RequireNonNull(type);
-            FieldInfo? info = GetStaticField(type,fieldName);
+            FieldInfo? info = GetStaticField(type, fieldName);
             info.SetValue(null, value);
         }
 
@@ -186,10 +180,10 @@ namespace SharpUtil
         /// 方法的参数
         /// </param>
         /// <returns>方法的返回值</returns>
-        public static object? InvokeMethod(this object obj, string methodName, Type[] parameters, params object[] args) 
+        public static object? InvokeMethod(this object obj, string methodName, Type[] parameters, params object[] args)
         {
             ValidateUtil.RequireNonNull(obj);
-            MethodInfo info = GetMethod(obj.GetType(),methodName,parameters);
+            MethodInfo info = GetMethod(obj.GetType(), methodName, parameters);
             return info.Invoke(obj, args);
         }
 
@@ -209,16 +203,16 @@ namespace SharpUtil
         public static object? InvokeStaticMethod(this Type type, string methodName, Type[] parameters, params object[] args)
         {
             ValidateUtil.RequireNonNull(type);
-            MethodInfo info = GetStaticMethod(type,methodName,parameters);
+            MethodInfo info = GetStaticMethod(type, methodName, parameters);
             return info.Invoke(null, args);
         }
 
-        public static bool TryGetAttributes<T>(this MemberInfo memberInfo,out IEnumerable<T>? attribute) where T : Attribute
+        public static bool TryGetAttributes<T>(this MemberInfo memberInfo, out IEnumerable<T>? attribute) where T : Attribute
         {
             IEnumerable<T>? a = memberInfo.GetCustomAttributes<T>();
             attribute = a;
             if (a == null)
-                return false; 
+                return false;
             return true;
         }
 
@@ -281,6 +275,48 @@ namespace SharpUtil
             if (a == null)
                 return false;
             return true;
+        }
+
+        public static PropertyInfo GetProperty(this Type type, string propertyName)
+        {
+            ValidateUtil.RequireNonNull(type);
+            return type.GetProperty(propertyName, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public)
+                ?? throw new ArgumentException($"The specified property was not found : {propertyName}");
+        }
+
+        public static PropertyInfo GetStaticProperty(this Type type, string propertyName)
+        {
+            ValidateUtil.RequireNonNull(type);
+            return type.GetProperty(propertyName, BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public)
+                ?? throw new ArgumentException($"The specified property was not found : {propertyName}");
+        }
+
+        public static object? GetPropertyValue(this object obj, string propertyName)
+        {
+            ValidateUtil.RequireNonNull(obj);
+            PropertyInfo? info = GetProperty(obj.GetType(), propertyName);
+            return info.GetValue(obj);
+        }
+
+        public static object? GetStaticPropertyValue(this Type type, string propertyName)
+        {
+            ValidateUtil.RequireNonNull(type);
+            PropertyInfo? info = GetStaticProperty(type, propertyName);
+            return info.GetValue(null);
+        }
+
+        public static void SetPropertyValue(this object obj, string propertyName, object? value)
+        {
+            ValidateUtil.RequireNonNull(obj);
+            PropertyInfo? info = GetProperty(obj.GetType(), propertyName);
+            info.SetValue(obj, value);
+        }
+
+        public static void SetStaticPropertyValue(this Type type, string propertyName, object? value)
+        {
+            ValidateUtil.RequireNonNull(type);
+            PropertyInfo? info = GetStaticProperty(type, propertyName);
+            info.SetValue(null, value);
         }
     }
 }

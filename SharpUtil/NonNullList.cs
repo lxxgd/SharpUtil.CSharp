@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections;
 
 namespace SharpUtil
 {
@@ -18,12 +13,12 @@ namespace SharpUtil
 
         /// <param name="size">列表大小</param>
         /// <param name="defaultValue">元素默认值</param>
-        public NonNullList(int size,E defaultValue) 
+        public NonNullList(int size, E defaultValue)
         {
             ValidateUtil.RequireNonNull(defaultValue);
             E[] e = new E[size];
             Array.Fill(e, defaultValue);
-            List<E> list = new List<E> (e);
+            List<E> list = new List<E>(e);
             this.list = list;
             this.defaultValue = defaultValue;
         }
@@ -39,10 +34,10 @@ namespace SharpUtil
 
         }
 
-        public E this[int index] 
-        { 
+        public E this[int index]
+        {
             get => ((IList<E>)list)[index];
-            set 
+            set
             {
                 ValidateUtil.RequireNonNull(value);
                 list[index] = value;
@@ -61,7 +56,7 @@ namespace SharpUtil
 
         public void Clear()
         {
-            for(int i = 0;i < list.Count; i++) 
+            for (int i = 0; i < list.Count; i++)
             {
                 list[i] = defaultValue;
             }
