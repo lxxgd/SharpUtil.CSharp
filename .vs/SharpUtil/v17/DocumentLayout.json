@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "F:\\sp\\SharpUtil\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{46D898F8-4627-4FDC-A393-E611AF15B1D1}|Test\\Test.csproj|f:\\sp\\sharputil\\test\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{46D898F8-4627-4FDC-A393-E611AF15B1D1}|Test\\Test.csproj|solutionrelative:test\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CA938BD7-0734-451B-B39A-3A7DAE0A6A90}|SharpUtil\\SharpUtil.csproj|f:\\sp\\sharputil\\sharputil\\stringutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA938BD7-0734-451B-B39A-3A7DAE0A6A90}|SharpUtil\\SharpUtil.csproj|solutionrelative:sharputil\\stringutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CA938BD7-0734-451B-B39A-3A7DAE0A6A90}|SharpUtil\\SharpUtil.csproj|F:\\sp\\SharpUtil\\sharputil\\reflectionutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{CA938BD7-0734-451B-B39A-3A7DAE0A6A90}|SharpUtil\\SharpUtil.csproj|f:\\sp\\sharputil\\sharputil\\reflectionutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CA938BD7-0734-451B-B39A-3A7DAE0A6A90}|SharpUtil\\SharpUtil.csproj|solutionrelative:sharputil\\reflectionutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CA938BD7-0734-451B-B39A-3A7DAE0A6A90}|SharpUtil\\SharpUtil.csproj|F:\\sp\\SharpUtil\\sharputil\\stringutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CA938BD7-0734-451B-B39A-3A7DAE0A6A90}|SharpUtil\\SharpUtil.csproj|solutionrelative:sharputil\\stringutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{46D898F8-4627-4FDC-A393-E611AF15B1D1}|Test\\Test.csproj|f:\\sp\\sharputil\\test\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46D898F8-4627-4FDC-A393-E611AF15B1D1}|Test\\Test.csproj|solutionrelative:test\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -49,14 +49,18 @@
               "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "F:\\sp\\SharpUtil\\Test\\Program.cs",
               "RelativeDocumentMoniker": "Test\\Program.cs",
               "ToolTip": "F:\\sp\\SharpUtil\\Test\\Program.cs",
               "RelativeToolTip": "Test\\Program.cs",
-              "ViewState": "AQIAACMAAAAAAAAAAAAxwDYAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-23T12:39:52.345Z",
               "EditorCaption": ""
@@ -69,21 +73,23 @@
               "RelativeDocumentMoniker": "SharpUtil\\ReflectionUtil.cs",
               "ToolTip": "F:\\sp\\SharpUtil\\SharpUtil\\ReflectionUtil.cs",
               "RelativeToolTip": "SharpUtil\\ReflectionUtil.cs",
-              "ViewState": "AQIAAA4BAAAAAAAAAABCwD0BAAA9AAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-23T12:32:59.745Z"
+              "WhenOpened": "2024-06-23T12:32:59.745Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "StringUtil.cs",
               "DocumentMoniker": "F:\\sp\\SharpUtil\\SharpUtil\\StringUtil.cs",
               "RelativeDocumentMoniker": "SharpUtil\\StringUtil.cs",
               "ToolTip": "F:\\sp\\SharpUtil\\SharpUtil\\StringUtil.cs",
               "RelativeToolTip": "SharpUtil\\StringUtil.cs",
-              "ViewState": "AQIAACMAAAAAAAAAAAAywCQAAAAEAAAA",
+              "ViewState": "AQIAADwAAAAAAAAAAAAAAA0AAAA0AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-23T12:11:32.772Z"
+              "WhenOpened": "2024-06-23T12:11:32.772Z",
+              "EditorCaption": ""
             }
           ]
         }

@@ -18,7 +18,7 @@ namespace SharpUtil
             ValidateUtil.RequireNonNull(defaultValue);
             E[] e = new E[size];
             Array.Fill(e, defaultValue);
-            List<E> list = new List<E>(e);
+            List<E> list = new(e);
             this.list = list;
             this.defaultValue = defaultValue;
         }
