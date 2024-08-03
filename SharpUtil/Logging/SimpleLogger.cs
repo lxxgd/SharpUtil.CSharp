@@ -39,9 +39,6 @@ public class SimpleLogger : IDisposable
         {
             AutoFlush = true
         });
-        //Trace.Listeners.Add(new TextWriterTraceListener(System.IO.Path.Combine(Path, FileName)));
-        //Trace.AutoFlush = true;
-        //_listener = new TextWriterTraceListener(System.IO.Path.Combine(Path, FileName));
     }
 
     public string Log(string? msg, LogLevel level)
@@ -49,11 +46,7 @@ public class SimpleLogger : IDisposable
         string str = $"[{DateTime.Now}] [{Thread.CurrentThread.Name}/{Name}] [{level}] {msg}";
         try
         {
-            //Trace.WriteLine(str);
-            //_listener.WriteLine(str);
-            //_listener.Flush();
             _logWriter.WriteLine(str);
-            //_logWriter.Flush();
         }
         catch (IOException e)
         {
