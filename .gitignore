@@ -1,0 +1,10 @@
+﻿################################################################################
+# 此 .gitignore 文件已由 Microsoft(R) Visual Studio 自动创建。
+################################################################################
+
+/SharpUtil/obj/Release/net8.0/SharpUtil.sourcelink.json
+/SharpUtil/bin/Release/net8.0
+/SharpUtil/obj/Release/net8.0/SharpUtil.csproj.BuildWithSkipAnalyzers
+/Test/obj/Release/net8.0
+/Test/bin/Debug/net8.0
+/Test/bin/Release/net8.0
