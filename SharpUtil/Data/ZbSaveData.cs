@@ -8,37 +8,42 @@ namespace SharpUtil.Data
 
         protected void Save(string path, string name)
         {
-            FileInfo fileInfo = new FileInfo(Path.Join(path, name));
-            using FileStream fileStream = new FileStream(Path.Join(path, name), FileMode.OpenOrCreate);
-            using BufferedStream bufferedStream = new BufferedStream(fileStream);
-            using BinaryWriter streamWriter = new BinaryWriter(bufferedStream);
+            FileInfo fileInfo = new(Path.Join(path, name));
+            using FileStream fileStream = new(Path.Join(path, name), FileMode.OpenOrCreate);
+            using BufferedStream bufferedStream = new(fileStream);
+            using BinaryWriter streamWriter = new(bufferedStream);
             try
             {
                 Write(streamWriter, fileInfo);
             }
             catch (Exception e)
             {
-                ExceptionHandling(true, e, fileInfo);
+                SaveExceptionHandling(e, fileInfo);
             }
         }
 
         protected void Load(string path, string name)
         {
-            FileInfo fileInfo = new FileInfo(Path.Join(path, name));
-            using FileStream fileStream = new FileStream(Path.Join(path, name), FileMode.OpenOrCreate);
-            using BufferedStream bufferedStream = new BufferedStream(fileStream);
-            using BinaryReader streamWriter = new BinaryReader(bufferedStream);
+            FileInfo fileInfo = new(Path.Join(path, name));
+            using FileStream fileStream = new(Path.Join(path, name), FileMode.OpenOrCreate);
+            using BufferedStream bufferedStream = new(fileStream);
+            using BinaryReader streamWriter = new(bufferedStream);
             try
             {
                 Read(streamWriter, fileInfo);
             }
             catch (Exception e)
             {
-                ExceptionHandling(false, e, fileInfo);
+                LoadExceptionHandling(e, fileInfo);
             }
         }
 
-        protected virtual void ExceptionHandling(bool saveOrLoad, Exception exception, FileInfo fileInfo)
+        protected virtual void SaveExceptionHandling(Exception exception, FileInfo fileInfo)
+        {
+            Console.WriteLine(exception.Message + "\n" + exception.StackTrace);
+        }
+
+        protected virtual void LoadExceptionHandling(Exception exception, FileInfo fileInfo)
         {
             Console.WriteLine(exception.Message + "\n" + exception.StackTrace);
         }

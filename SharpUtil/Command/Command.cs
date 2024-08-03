@@ -15,7 +15,7 @@ public abstract class Command
         get;
     }
 
-    public CommandManager Owner { get; set; }
+    public CommandManager? Owner { get; set; }
 
     public abstract object? Execute(string[] args);
 

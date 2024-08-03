@@ -34,13 +34,9 @@ public class IntArrayDataTag : BaseDataTag
         }
     }
 
-    public override Object GetValue()
+    public override object GetValue()
     {
-        List<int> list = new List<int>();
-        foreach (var variable in Value)
-        {
-            list.Add(variable);
-        }
-        return StringUtil.FormatList(list); ;
+        List<int> list = [.. Value];
+        return StringUtil.ToStringForEnumerable(list); ;
     }
 }

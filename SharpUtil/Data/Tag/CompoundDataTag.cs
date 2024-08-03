@@ -13,7 +13,7 @@ public class CompoundDataTag : BaseDataTag
 
     public CompoundDataTag()
     {
-        Tags = new Dictionary<string, IDataTag>();
+        Tags = [];
     }
 
     public override byte GetTagType()
@@ -81,7 +81,7 @@ public class CompoundDataTag : BaseDataTag
 
     public void PutInt(string key, int v)
     {
-        IntDataTag tag = new IntDataTag(v);
+        IntDataTag tag = new(v);
         Tags.Add(key, tag);
     }
 
@@ -102,7 +102,7 @@ public class CompoundDataTag : BaseDataTag
 
     public void PutIntArray(string key, int[] v)
     {
-        IntArrayDataTag intArrayDataTag = new IntArrayDataTag(v);
+        IntArrayDataTag intArrayDataTag = new(v);
         Tags.Add(key, intArrayDataTag);
     }
 
@@ -113,7 +113,7 @@ public class CompoundDataTag : BaseDataTag
 
     public void PutString(string key, string value)
     {
-        StringDataTag stringDataTag = new StringDataTag(value);
+        StringDataTag stringDataTag = new(value);
         Tags.Add(key, stringDataTag);
     }
 
@@ -124,7 +124,7 @@ public class CompoundDataTag : BaseDataTag
 
     public void PutBoolean(string key, bool v)
     {
-        BooleanDataTag tag = new BooleanDataTag(v);
+        BooleanDataTag tag = new(v);
         Tags.Add(key, tag);
     }
 
@@ -135,7 +135,7 @@ public class CompoundDataTag : BaseDataTag
 
     public void PutLong(string key, long v)
     {
-        LongDataTag tag = new LongDataTag(v);
+        LongDataTag tag = new(v);
         Tags.Add(key, tag);
     }
 
@@ -146,7 +146,7 @@ public class CompoundDataTag : BaseDataTag
 
     public void PutFloat(string key, float v)
     {
-        FloatDataTag tag = new FloatDataTag(v);
+        FloatDataTag tag = new(v);
         Tags.Add(key, tag);
     }
 
@@ -157,7 +157,7 @@ public class CompoundDataTag : BaseDataTag
 
     public void PutDouble(string key, double v)
     {
-        DoubleDataTag tag = new DoubleDataTag(v);
+        DoubleDataTag tag = new(v);
         Tags.Add(key, tag);
     }
 
@@ -168,7 +168,7 @@ public class CompoundDataTag : BaseDataTag
 
     public void PutByte(string key, byte v)
     {
-        ByteDataTag tag = new ByteDataTag(v);
+        ByteDataTag tag = new(v);
         Tags.Add(key, tag);
     }
 
@@ -179,7 +179,7 @@ public class CompoundDataTag : BaseDataTag
 
     public void PutDecimal(string key, decimal v)
     {
-        DecimalDataTag tag = new DecimalDataTag(v);
+        DecimalDataTag tag = new(v);
         Tags.Add(key, tag);
     }
 
@@ -190,7 +190,7 @@ public class CompoundDataTag : BaseDataTag
 
     public void PutByteArray(string key, byte[] v)
     {
-        ByteArrayDataTag intArrayDataTag = new ByteArrayDataTag(v);
+        ByteArrayDataTag intArrayDataTag = new(v);
         Tags.Add(key, intArrayDataTag);
     }
 

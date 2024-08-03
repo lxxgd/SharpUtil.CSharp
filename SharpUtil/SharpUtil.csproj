@@ -6,13 +6,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Optimize>False</Optimize>
+  </PropertyGroup>
+
   <ItemGroup>
     <Compile Remove="Data\Tag\Base.cs" />
     <Compile Remove="DirectoryTreeNode.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="System.CommandLine" Version="2.0.0-beta4.22272.1" />
   </ItemGroup>
 
 </Project>

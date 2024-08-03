@@ -6,28 +6,39 @@ public static class StringUtil
 {
     private static readonly Random _random = new();
 
-    public static bool IsNull(this string? str)
+    public static bool IsNullOrEmpty(this string? str)
     {
-        return str != null && str != string.Empty;
+        return string.IsNullOrEmpty(str);
     }
 
-    public static string FormatList<T>(List<T> list)
+    public static string ToStringForEnumerable<T>(this IEnumerable<T> enumerable)
     {
-        string formattedByteList = $"[{string.Join(", ", list.ToArray())}]";
+        string formattedByteList = $"[{string.Join(", ", enumerable)}]";
         return formattedByteList;
     }
 
-    public static string FormatArray<T>(IEnumerable<T> list)
+    public static string ToStringForEnumerableWithNull<T>(this IEnumerable<T> enumerable)
     {
-        string formattedByteList = $"[{string.Join(", ", list)}]";
-        return formattedByteList;
+        List<string> strings = [];
+        foreach (T item in enumerable)
+        {
+            if (item == null)
+            {
+                strings.Add("null");
+            }
+            else
+            {
+                strings.Add(item.ToString() ?? "null");
+            }
+        }
+        return ToStringForEnumerable(strings);
     }
 
     public static string AddToLineHeader(string str, string symbol)
     {
         str = str.Trim();
         string[] strings = str.Split("\n");
-        StringBuilder stringBuilder = new StringBuilder();
+        StringBuilder stringBuilder = new();
         for (int i = 0; i < strings.Length; i++)
         {
             string s = symbol + strings[i];
@@ -39,7 +50,7 @@ public static class StringUtil
     public static string AddToLineHeaderFix(string str, string symbol)
     {
         string[] strings = str.Split("\n");
-        StringBuilder stringBuilder = new StringBuilder();
+        StringBuilder stringBuilder = new();
         for (int i = 0; i < strings.Length; i++)
         {
             if (!strings[i].Equals(string.Empty))
@@ -54,7 +65,7 @@ public static class StringUtil
     public static string AddToLineHeader(string str, string symbol, string start, string end)
     {
         string[] strings = str.Split("\n");
-        StringBuilder stringBuilder = new StringBuilder();
+        StringBuilder stringBuilder = new();
         for (int i = 0; i < strings.Length; i++)
         {
             string s;
@@ -73,7 +84,7 @@ public static class StringUtil
     {
         str = str.Trim();
         string[] strings = str.Split("\n");
-        StringBuilder stringBuilder = new StringBuilder();
+        StringBuilder stringBuilder = new();
         for (int i = 0; i < strings.Length; i++)
         {
             if (!strings[i].Equals(string.Empty))
@@ -104,14 +115,14 @@ public static class StringUtil
 
     private static string PrintDirectory(string dir_path, int depth, string prefix)
     {
-        StringBuilder stringBuilder = new StringBuilder();
-        DirectoryInfo dif = new DirectoryInfo(dir_path);
+        StringBuilder stringBuilder = new();
+        DirectoryInfo dif = new(dir_path);
         if (depth == 0)
             stringBuilder.Append(prefix + dif.Name).Append('\n');
         else
         {
             //stringBuilder.Append(prefix.Substring(0, prefix.Length - 2) + "| ").Append('\n');
-            stringBuilder.Append(prefix.Substring(0, prefix.Length - 2) + "|-" + dif.Name).Append('\n');
+            stringBuilder.Append(string.Concat(prefix.AsSpan(0, prefix.Length - 2), "|-", dif.Name)).Append('\n');
         }
 
         for (int counter = 0; counter < dif.GetDirectories().Length; counter++)
@@ -145,18 +156,20 @@ public static class StringUtil
         for (int i = 0; i < length; i++)
         {
             string str = "︴ÀÁÂÈÊËÍÓÔÕÚßãõğİıŒœŞşŴŵžȇ!\"#;$%&'^_¿`@()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ^_`abcdefghijklmnopqrstuvwxyz[]‖§{|}~ ÇüéâäàåçêëèïîìÄÅÉæÆôöòûùÿÖÜø£Ø×ƒáíóúñÑªº¿®¬½¼¡«»αβΓπΣσμτΦΘΩδ∞∅∈∩≡±≥≤⌠⌡÷≈°∙·√ⁿ²■ ∶∴∏≯≮≡≠±％∭∰℉¼$¥￥£￠€฿￡₠γζψονω";
-            s.Append(str.AsSpan(_random.Next(0, str.Length - 1), 1));
+            int start = _random.Next(0, str.Length - 1);
+            ReadOnlySpan<char> value = str.AsSpan(start, 1);
+            s.Append(value);
         }
         return s.ToString();
     }
 
     public static String GetRandomString2(int length)
     {
-        StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new();
         for (int i = 0; i < length; i++)
         {
-            long result = (_random.Next(93) + 33);
-            sb.Append(((char)(int)result));
+            long result = _random.Next(93) + 33;
+            sb.Append((char)(int)result);
         }
         return sb.ToString();
     }
@@ -185,4 +198,18 @@ public static class StringUtil
         return sb.ToString();
     }
 
+    public static string Map2DToString<T>(this Map2D<T> map)
+    {
+        StringBuilder sb = new();
+        for (int x = 0; x < map.Width; x++)
+        {
+            for (int y = 0; y < map.Height; y++)
+            {
+                T? value = map[x, y];
+                sb.Append((value == null ? "null" : value.ToString()) + ", ");
+            }
+            sb.Append('\n');
+        }
+        return sb.ToString();
+    }
 }

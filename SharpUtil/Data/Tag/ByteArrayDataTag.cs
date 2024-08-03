@@ -27,7 +27,7 @@ public class ByteArrayDataTag : BaseDataTag
 
     public override object GetValue()
     {
-        return StringUtil.FormatArray(Value);
+        return StringUtil.ToStringForEnumerable(Value);
     }
 
     public override void Write(BinaryWriter dataOutput)

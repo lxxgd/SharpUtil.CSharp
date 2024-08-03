@@ -8,6 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="CommandLineParser" Version="2.9.1" />
+    <PackageReference Include="ExtendedNumerics.BigDecimal" Version="2025.1002.0.190" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\SharpUtil\SharpUtil.csproj" />
   </ItemGroup>
 

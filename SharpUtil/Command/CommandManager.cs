@@ -2,7 +2,7 @@
 
 public class CommandManager
 {
-    public List<Command> Commands { get; } = new List<Command>();
+    public List<Command> Commands { get; } = [];
     public static bool Debug { get; set; } = false;
 
     public CommandManager()

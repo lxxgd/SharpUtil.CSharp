@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SharpUtil")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7032b8cf752b1903b0c85bed284cefd50ffb73e3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+23ca5bb70dfa624928a9287dc74343fe72f54e0b")]
 [assembly: System.Reflection.AssemblyProductAttribute("SharpUtil")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SharpUtil")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

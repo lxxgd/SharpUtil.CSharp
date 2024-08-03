@@ -1,10 +1,8 @@
-﻿using System.CodeDom.Compiler;
-
-namespace SharpUtil.Logging;
+﻿namespace SharpUtil.Logging;
 
 public class SimpleLogger : IDisposable
 {
-    public IndentedTextWriter LogWriter { get; }
+    private readonly TextWriter _logWriter;
     public string Name { get; }
     public string Path { get; }
     public string FileName { get; }
@@ -13,33 +11,55 @@ public class SimpleLogger : IDisposable
 
     public SimpleLogger(string name, string path)
     {
-        this.Name = name;
-        this.Path = path;
-        this.FileName = DateTime.Now.ToString("yyyy-M-dd--HH.mm.ss") + ".log";
-        this.HistoryLog = new List<string>();
+        Name = name;
+        Path = path;
+        FileName = DateTime.Now.ToString("yyyy-M-dd--HH.mm.ss") + ".log";
+        HistoryLog = [];
         if (!Directory.Exists(Path))
         {
-            Directory.CreateDirectory(Path);
+            _ = Directory.CreateDirectory(Path);
         }
-        string[] logs = Directory.EnumerateFiles(Path, "*.log").ToArray();
-        for (int i = 0; i < logs.Length - maxLogs; i++)
+
+        try
         {
-            File.Delete(logs[i]);
+            string[] logs = Directory.EnumerateFiles(Path, "*.log").ToArray();
+            for (int i = 0; i < logs.Length - maxLogs; i++)
+            {
+                File.Delete(logs[i]);
+            }
         }
-        this.LogWriter = new IndentedTextWriter(new StreamWriter(File.Open(System.IO.Path.Combine(Path, FileName), FileMode.Append))
+        catch (IOException e)
+        {
+            Console.WriteLine(e.GetExceptionMessage());
+            System.Diagnostics.Debug.WriteLine(e.GetExceptionMessage());
+        }
+        catch { }
+
+        _logWriter = TextWriter.Synchronized(new StreamWriter(new BufferedStream(new FileStream(System.IO.Path.Combine(Path, FileName), FileMode.Append, FileAccess.Write, FileShare.Read)))
         {
             AutoFlush = true
         });
+        //Trace.Listeners.Add(new TextWriterTraceListener(System.IO.Path.Combine(Path, FileName)));
+        //Trace.AutoFlush = true;
+        //_listener = new TextWriterTraceListener(System.IO.Path.Combine(Path, FileName));
     }
 
     public string Log(string? msg, LogLevel level)
     {
-        string str = "[" + DateTime.Now + "] "
-                   + "[" + Thread.CurrentThread.Name + "/" + Name + "] "
-                   + "[" + level + "] "
-                   + msg;
-        LogWriter.WriteLine(str);
-        LogWriter.Flush();
+        string str = $"[{DateTime.Now}] [{Thread.CurrentThread.Name}/{Name}] [{level}] {msg}";
+        try
+        {
+            //Trace.WriteLine(str);
+            //_listener.WriteLine(str);
+            //_listener.Flush();
+            _logWriter.WriteLine(str);
+            //_logWriter.Flush();
+        }
+        catch (IOException e)
+        {
+            Console.WriteLine("日志记录失败：" + e.GetExceptionMessage());
+            System.Diagnostics.Debug.WriteLine("日志记录失败：" + e.GetExceptionMessage());
+        }
         HistoryLog.Add(str);
         Console.WriteLine(str);
         System.Diagnostics.Debug.WriteLine(str);
@@ -133,7 +153,7 @@ public class SimpleLogger : IDisposable
 
     public void Dispose()
     {
-        LogWriter.Close();
-        ((IDisposable)LogWriter).Dispose();
+        _logWriter.Close();
+        GC.SuppressFinalize(this);
     }
 }

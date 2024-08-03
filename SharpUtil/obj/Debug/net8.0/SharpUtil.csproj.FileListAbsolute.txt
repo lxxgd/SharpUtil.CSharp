@@ -10,4 +10,3 @@ F:\sp\SharpUtil\SharpUtil\obj\Debug\net8.0\refint\SharpUtil.dll
 F:\sp\SharpUtil\SharpUtil\obj\Debug\net8.0\SharpUtil.pdb
 F:\sp\SharpUtil\SharpUtil\obj\Debug\net8.0\ref\SharpUtil.dll
 F:\sp\SharpUtil\SharpUtil\obj\Debug\net8.0\SharpUtil.sourcelink.json
-F:\sp\SharpUtil\SharpUtil\obj\Debug\net8.0\SharpUtil.csproj.AssemblyReference.cache

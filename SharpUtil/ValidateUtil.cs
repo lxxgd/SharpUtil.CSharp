@@ -49,6 +49,7 @@
         /// <typeparam name="T"></typeparam>
         /// <param name="array">要验证的数组</param>
         /// <returns>原数组</returns>
+        /// <exception cref="ArgumentException"></exception>
         public static T[] NoNullElementsWithException<T>(T[] array)
         {
             RequireNonNull(array);
@@ -68,6 +69,7 @@
         /// <typeparam name="T"></typeparam>
         /// <param name="enumerable">要验证的集合</param>
         /// <returns>原集合</returns>
+        /// <exception cref="ArgumentException"></exception>
         public static IEnumerable<T> NoNullElementsWithException<T>(IEnumerable<T> enumerable)
         {
             RequireNonNull(enumerable);
@@ -141,6 +143,8 @@
         /// <typeparam name="T"></typeparam>
         /// <param name="array">要验证的数组</param>
         /// <param name="index">要验证的下标</param>
+        /// <returns>原数组</returns>
+        /// <exception cref="IndexOutOfRangeException"></exception>
         public static T[] ValidIndexWithException<T>(T[] array, int index)
         {
             RequireNonNull(array);
@@ -174,6 +178,8 @@
         /// <typeparam name="T"></typeparam>
         /// <param name="collection">要验证的集合</param>
         /// <param name="index">要验证的下标</param>
+        /// <returns>原集合</returns>
+        /// <exception cref="IndexOutOfRangeException"></exception>
         public static ICollection<T> ValidIndexWithException<T>(ICollection<T> collection, int index)
         {
             RequireNonNull(collection);
@@ -182,6 +188,30 @@
                 return collection;
             else
                 throw new IndexOutOfRangeException($"The validated collection index is invalid: {index}");
+        }
+
+        public static bool ValidIndex<T>(this Map2D<T> map,int x,int y) 
+        {
+            if (x >= 0 && x < map.Width && y >= 0 && y < map.Height)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        
+        public static Map2D<T> ValidIndexWithException<T>(this Map2D<T> map, int x, int y)
+        {
+            if (x >= 0 && x < map.Width && y >= 0 && y < map.Height)
+            {
+                return map;
+            }
+            else
+            {
+                throw new IndexOutOfRangeException($"The validated map index is invalid: ({x},{y})");
+            }
         }
 
         public static bool IsValid(this float x)

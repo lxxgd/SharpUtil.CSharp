@@ -6,9 +6,9 @@ namespace SharpUtil
     /// 非空列表，不会包含Null元素，具有默认值
     /// </summary>
     /// <typeparam name="E"></typeparam>
-    public class NonNullList<E> : IList<E>
+    public class NonNullList<E> : IList<E>, IList, IReadOnlyList<E>
     {
-        public List<E> list;
+        private readonly List<E> list;
         public E defaultValue;
 
         /// <param name="size">列表大小</param>
@@ -29,7 +29,7 @@ namespace SharpUtil
         {
             ValidateUtil.RequireNonNull(defaultValue);
             ValidateUtil.NoNullElementsWithException(e);
-            this.list = new List<E>(e);
+            list = new(e);
             this.defaultValue = defaultValue;
 
         }
@@ -37,21 +37,35 @@ namespace SharpUtil
         public E this[int index]
         {
             get => ((IList<E>)list)[index];
-            set
-            {
-                ValidateUtil.RequireNonNull(value);
-                list[index] = value;
-            }
+            set => list[index] = value ?? defaultValue;
+        }
+
+        object? IList.this[int index] 
+        {
+            get => ((IList)list)[index];
+            set => ((IList)list)[index] = value ?? defaultValue;
         }
 
         public int Count => ((ICollection<E>)list).Count;
 
         public bool IsReadOnly => ((ICollection<E>)list).IsReadOnly;
 
+        public bool IsFixedSize => ((IList)list).IsFixedSize;
+
+        public bool IsSynchronized => ((ICollection)list).IsSynchronized;
+
+        public object SyncRoot => ((ICollection)list).SyncRoot;
+
         public void Add(E item)
         {
             ValidateUtil.RequireNonNull(item);
             list.Add(item);
+        }
+
+        public int Add(object? value)
+        {
+            ValidateUtil.RequireNonNull(value);
+            return ((IList)list).Add(value);
         }
 
         public void Clear()
@@ -67,9 +81,19 @@ namespace SharpUtil
             return ((ICollection<E>)list).Contains(item);
         }
 
+        public bool Contains(object? value)
+        {
+            return ((IList)list).Contains(value);
+        }
+
         public void CopyTo(E[] array, int arrayIndex)
         {
             ((ICollection<E>)list).CopyTo(array, arrayIndex);
+        }
+
+        public void CopyTo(Array array, int index)
+        {
+            ((ICollection)list).CopyTo(array, index);
         }
 
         public IEnumerator<E> GetEnumerator()
@@ -82,14 +106,29 @@ namespace SharpUtil
             return ((IList<E>)list).IndexOf(item);
         }
 
+        public int IndexOf(object? value)
+        {
+            return ((IList)list).IndexOf(value);
+        }
+
         public void Insert(int index, E item)
         {
-            ((IList<E>)list).Insert(index, item);
+            ((IList<E>)list).Insert(index, item ?? defaultValue);
+        }
+
+        public void Insert(int index, object? value)
+        {
+            ((IList)list).Insert(index, value ?? defaultValue);
         }
 
         public bool Remove(E item)
         {
             return ((ICollection<E>)list).Remove(item);
+        }
+
+        public void Remove(object? value)
+        {
+            ((IList)list).Remove(value);
         }
 
         public void RemoveAt(int index)

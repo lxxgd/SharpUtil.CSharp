@@ -5,7 +5,7 @@ namespace Test;
 
 public class TestSaveData : SimpleSaveData
 {
-    public List<Guid> uuid = new List<Guid>();
+    public List<Guid> uuid = [];
     public int anInt;
     public int anInt2;
     public int anInt3;
@@ -45,19 +45,19 @@ public class TestSaveData : SimpleSaveData
 
     protected override void Write(BinaryWriter dataOutputStream, FileInfo file)
     {
-        CompoundDataTag compoundDataTag = new CompoundDataTag();
-        ListDataTag listDataTag = new ListDataTag();
+        CompoundDataTag compoundDataTag = new();
+        ListDataTag listDataTag = new();
         foreach (var variable in uuid)
         {
             byte[] b = variable.ToByteArray();
-            CompoundDataTag compoundDataTag3 = new CompoundDataTag();
+            CompoundDataTag compoundDataTag3 = new();
             compoundDataTag3.PutByteArray("UUID", b);
             listDataTag.TagList.Add(compoundDataTag3);
         }
         compoundDataTag.PutInt("int", anInt);
         compoundDataTag.PutInt("int2", anInt2);
         compoundDataTag.PutInt("int3", anInt3);
-        CompoundDataTag compoundDataTag1 = new CompoundDataTag();
+        CompoundDataTag compoundDataTag1 = new();
         compoundDataTag1.PutInt("AN", 741);
         compoundDataTag.Put("WOW", compoundDataTag1);
         compoundDataTag.Put("uuid", listDataTag);
@@ -67,16 +67,8 @@ public class TestSaveData : SimpleSaveData
         compoundDataTag.PutFloat("Float!", float.MaxValue);
         compoundDataTag.PutBoolean("Boolean!", true);
         compoundDataTag.PutByte("Byte!", byte.MaxValue);
-        DecimalDataTag decimalDataTag = new DecimalDataTag(de);
+        DecimalDataTag decimalDataTag = new(de);
         compoundDataTag.Put("de", decimalDataTag);
         compoundDataTag.Write(dataOutputStream);
-    }
-
-    protected override void ExceptionHandling(bool saveOrLoad, Exception exception, FileInfo fileInfo)
-    {
-        if (saveOrLoad)
-            Program.logger.Error("Could save file " + fileInfo.Name + "\n" + SharpUtil.SharpUtil.GetExceptionMessage(exception));
-        else
-            Program.logger.Error("Could load file " + fileInfo.Name + "\n" + SharpUtil.SharpUtil.GetExceptionMessage(exception));
     }
 }

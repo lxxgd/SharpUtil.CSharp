@@ -3,16 +3,28 @@
   "WorkspaceRootPath": "F:\\sp\\SharpUtil\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{CA938BD7-0734-451B-B39A-3A7DAE0A6A90}|SharpUtil\\SharpUtil.csproj|f:\\sp\\sharputil\\sharputil\\limitedqueue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA938BD7-0734-451B-B39A-3A7DAE0A6A90}|SharpUtil\\SharpUtil.csproj|solutionrelative:sharputil\\limitedqueue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA938BD7-0734-451B-B39A-3A7DAE0A6A90}|SharpUtil\\SharpUtil.csproj|f:\\sp\\sharputil\\sharputil\\mathutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA938BD7-0734-451B-B39A-3A7DAE0A6A90}|SharpUtil\\SharpUtil.csproj|solutionrelative:sharputil\\mathutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CA938BD7-0734-451B-B39A-3A7DAE0A6A90}|SharpUtil\\SharpUtil.csproj|f:\\sp\\sharputil\\sharputil\\stringutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CA938BD7-0734-451B-B39A-3A7DAE0A6A90}|SharpUtil\\SharpUtil.csproj|solutionrelative:sharputil\\stringutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CA938BD7-0734-451B-B39A-3A7DAE0A6A90}|SharpUtil\\SharpUtil.csproj|f:\\sp\\sharputil\\sharputil\\reflectionutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CA938BD7-0734-451B-B39A-3A7DAE0A6A90}|SharpUtil\\SharpUtil.csproj|solutionrelative:sharputil\\reflectionutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CA938BD7-0734-451B-B39A-3A7DAE0A6A90}|SharpUtil\\SharpUtil.csproj|f:\\sp\\sharputil\\sharputil\\validateutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA938BD7-0734-451B-B39A-3A7DAE0A6A90}|SharpUtil\\SharpUtil.csproj|solutionrelative:sharputil\\validateutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{46D898F8-4627-4FDC-A393-E611AF15B1D1}|Test\\Test.csproj|f:\\sp\\sharputil\\test\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{46D898F8-4627-4FDC-A393-E611AF15B1D1}|Test\\Test.csproj|solutionrelative:test\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA938BD7-0734-451B-B39A-3A7DAE0A6A90}|SharpUtil\\SharpUtil.csproj|f:\\sp\\sharputil\\sharputil\\data\\tag\\idatatag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA938BD7-0734-451B-B39A-3A7DAE0A6A90}|SharpUtil\\SharpUtil.csproj|solutionrelative:sharputil\\data\\tag\\idatatag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,41 +66,79 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "F:\\sp\\SharpUtil\\Test\\Program.cs",
-              "RelativeDocumentMoniker": "Test\\Program.cs",
-              "ToolTip": "F:\\sp\\SharpUtil\\Test\\Program.cs",
-              "RelativeToolTip": "Test\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAOAAAA",
+              "DocumentIndex": 0,
+              "Title": "LimitedQueue.cs",
+              "DocumentMoniker": "F:\\sp\\SharpUtil\\SharpUtil\\LimitedQueue.cs",
+              "RelativeDocumentMoniker": "SharpUtil\\LimitedQueue.cs",
+              "ToolTip": "F:\\sp\\SharpUtil\\SharpUtil\\LimitedQueue.cs",
+              "RelativeToolTip": "SharpUtil\\LimitedQueue.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-23T12:39:52.345Z",
+              "WhenOpened": "2024-07-22T05:53:24.589Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ReflectionUtil.cs",
-              "DocumentMoniker": "F:\\sp\\SharpUtil\\SharpUtil\\ReflectionUtil.cs",
-              "RelativeDocumentMoniker": "SharpUtil\\ReflectionUtil.cs",
-              "ToolTip": "F:\\sp\\SharpUtil\\SharpUtil\\ReflectionUtil.cs",
-              "RelativeToolTip": "SharpUtil\\ReflectionUtil.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAfAAAA",
+              "Title": "MathUtil.cs",
+              "DocumentMoniker": "F:\\sp\\SharpUtil\\SharpUtil\\MathUtil.cs",
+              "RelativeDocumentMoniker": "SharpUtil\\MathUtil.cs",
+              "ToolTip": "F:\\sp\\SharpUtil\\SharpUtil\\MathUtil.cs",
+              "RelativeToolTip": "SharpUtil\\MathUtil.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAADwvwUAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-23T12:32:59.745Z",
+              "WhenOpened": "2024-07-22T05:50:30.32Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
+              "Title": "ValidateUtil.cs",
+              "DocumentMoniker": "F:\\sp\\SharpUtil\\SharpUtil\\ValidateUtil.cs",
+              "RelativeDocumentMoniker": "SharpUtil\\ValidateUtil.cs",
+              "ToolTip": "F:\\sp\\SharpUtil\\SharpUtil\\ValidateUtil.cs",
+              "RelativeToolTip": "SharpUtil\\ValidateUtil.cs",
+              "ViewState": "AQIAANgAAAAAAAAAAADwv90AAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-22T05:43:22.91Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IDataTag.cs",
+              "DocumentMoniker": "F:\\sp\\SharpUtil\\SharpUtil\\Data\\Tag\\IDataTag.cs",
+              "RelativeDocumentMoniker": "SharpUtil\\Data\\Tag\\IDataTag.cs",
+              "ToolTip": "F:\\sp\\SharpUtil\\SharpUtil\\Data\\Tag\\IDataTag.cs",
+              "RelativeToolTip": "SharpUtil\\Data\\Tag\\IDataTag.cs",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAAAAwAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-21T10:45:12.072Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "StringUtil.cs",
               "DocumentMoniker": "F:\\sp\\SharpUtil\\SharpUtil\\StringUtil.cs",
               "RelativeDocumentMoniker": "SharpUtil\\StringUtil.cs",
               "ToolTip": "F:\\sp\\SharpUtil\\SharpUtil\\StringUtil.cs",
               "RelativeToolTip": "SharpUtil\\StringUtil.cs",
-              "ViewState": "AQIAADwAAAAAAAAAAAAAAA0AAAA0AAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAA2wBQAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-23T12:11:32.772Z",
+              "WhenOpened": "2024-07-21T10:44:54.285Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "F:\\sp\\SharpUtil\\Test\\Program.cs",
+              "RelativeDocumentMoniker": "Test\\Program.cs",
+              "ToolTip": "F:\\sp\\SharpUtil\\Test\\Program.cs",
+              "RelativeToolTip": "Test\\Program.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAA2wHQAAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-21T05:30:39.093Z",
               "EditorCaption": ""
             }
           ]

@@ -13,7 +13,7 @@ public class ListDataTag : BaseDataTag
 
     public ListDataTag()
     {
-        TagList = new List<IDataTag>();
+        TagList = [];
     }
 
     public override byte GetTagType()
@@ -24,7 +24,7 @@ public class ListDataTag : BaseDataTag
     public static ListDataTag Read(BinaryReader dataInput)
     {
         int size = dataInput.ReadInt32();
-        List<IDataTag> tagList = new List<IDataTag>(size);
+        List<IDataTag> tagList = new(size);
         for (int i = 0; i < size; i++)
         {
             IDataTag? tag;
@@ -45,7 +45,7 @@ public class ListDataTag : BaseDataTag
 
     public String GetTagTree()
     {
-        StringBuilder stringBuilder = new StringBuilder();
+        StringBuilder stringBuilder = new();
         foreach (var kDataTag in TagList)
         {
             IDataTag.GetTagTreeNode(stringBuilder, kDataTag, null);

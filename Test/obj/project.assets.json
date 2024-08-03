@@ -2,66 +2,35 @@
   "version": 3,
   "targets": {
     "net8.0": {
-      "System.CommandLine/2.0.0-beta4.22272.1": {
+      "CommandLineParser/2.9.1": {
         "type": "package",
         "compile": {
-          "lib/net6.0/System.CommandLine.dll": {
-            "related": ".pdb;.xml"
+          "lib/netstandard2.0/CommandLine.dll": {
+            "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net6.0/System.CommandLine.dll": {
-            "related": ".pdb;.xml"
+          "lib/netstandard2.0/CommandLine.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "ExtendedNumerics.BigDecimal/2025.1002.0.190": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/ExtendedNumerics.BigDecimal.dll": {
+            "related": ".xml"
           }
         },
-        "resource": {
-          "lib/net6.0/cs/System.CommandLine.resources.dll": {
-            "locale": "cs"
-          },
-          "lib/net6.0/de/System.CommandLine.resources.dll": {
-            "locale": "de"
-          },
-          "lib/net6.0/es/System.CommandLine.resources.dll": {
-            "locale": "es"
-          },
-          "lib/net6.0/fr/System.CommandLine.resources.dll": {
-            "locale": "fr"
-          },
-          "lib/net6.0/it/System.CommandLine.resources.dll": {
-            "locale": "it"
-          },
-          "lib/net6.0/ja/System.CommandLine.resources.dll": {
-            "locale": "ja"
-          },
-          "lib/net6.0/ko/System.CommandLine.resources.dll": {
-            "locale": "ko"
-          },
-          "lib/net6.0/pl/System.CommandLine.resources.dll": {
-            "locale": "pl"
-          },
-          "lib/net6.0/pt-BR/System.CommandLine.resources.dll": {
-            "locale": "pt-BR"
-          },
-          "lib/net6.0/ru/System.CommandLine.resources.dll": {
-            "locale": "ru"
-          },
-          "lib/net6.0/tr/System.CommandLine.resources.dll": {
-            "locale": "tr"
-          },
-          "lib/net6.0/zh-Hans/System.CommandLine.resources.dll": {
-            "locale": "zh-Hans"
-          },
-          "lib/net6.0/zh-Hant/System.CommandLine.resources.dll": {
-            "locale": "zh-Hant"
+        "runtime": {
+          "lib/net8.0/ExtendedNumerics.BigDecimal.dll": {
+            "related": ".xml"
           }
         }
       },
       "SharpUtil/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
-        "dependencies": {
-          "System.CommandLine": "2.0.0-beta4.22272.1"
-        },
         "compile": {
           "bin/placeholder/SharpUtil.dll": {}
         },
@@ -72,48 +41,60 @@
     }
   },
   "libraries": {
-    "System.CommandLine/2.0.0-beta4.22272.1": {
-      "sha512": "1uqED/q2H0kKoLJ4+hI2iPSBSEdTuhfCYADeJrAqERmiGQ2NNacYKRNEQ+gFbU4glgVyK8rxI+ZOe1onEtr/Pg==",
+    "CommandLineParser/2.9.1": {
+      "sha512": "OE0sl1/sQ37bjVsPKKtwQlWDgqaxWgtme3xZz7JssWUzg5JpMIyHgCTY9MVMxOg48fJ1AgGT3tgdH5m/kQ5xhA==",
       "type": "package",
-      "path": "system.commandline/2.0.0-beta4.22272.1",
+      "path": "commandlineparser/2.9.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "Icon.png",
-        "lib/net6.0/System.CommandLine.dll",
-        "lib/net6.0/System.CommandLine.pdb",
-        "lib/net6.0/System.CommandLine.xml",
-        "lib/net6.0/cs/System.CommandLine.resources.dll",
-        "lib/net6.0/de/System.CommandLine.resources.dll",
-        "lib/net6.0/es/System.CommandLine.resources.dll",
-        "lib/net6.0/fr/System.CommandLine.resources.dll",
-        "lib/net6.0/it/System.CommandLine.resources.dll",
-        "lib/net6.0/ja/System.CommandLine.resources.dll",
-        "lib/net6.0/ko/System.CommandLine.resources.dll",
-        "lib/net6.0/pl/System.CommandLine.resources.dll",
-        "lib/net6.0/pt-BR/System.CommandLine.resources.dll",
-        "lib/net6.0/ru/System.CommandLine.resources.dll",
-        "lib/net6.0/tr/System.CommandLine.resources.dll",
-        "lib/net6.0/zh-Hans/System.CommandLine.resources.dll",
-        "lib/net6.0/zh-Hant/System.CommandLine.resources.dll",
-        "lib/netstandard2.0/System.CommandLine.dll",
-        "lib/netstandard2.0/System.CommandLine.pdb",
-        "lib/netstandard2.0/System.CommandLine.xml",
-        "lib/netstandard2.0/cs/System.CommandLine.resources.dll",
-        "lib/netstandard2.0/de/System.CommandLine.resources.dll",
-        "lib/netstandard2.0/es/System.CommandLine.resources.dll",
-        "lib/netstandard2.0/fr/System.CommandLine.resources.dll",
-        "lib/netstandard2.0/it/System.CommandLine.resources.dll",
-        "lib/netstandard2.0/ja/System.CommandLine.resources.dll",
-        "lib/netstandard2.0/ko/System.CommandLine.resources.dll",
-        "lib/netstandard2.0/pl/System.CommandLine.resources.dll",
-        "lib/netstandard2.0/pt-BR/System.CommandLine.resources.dll",
-        "lib/netstandard2.0/ru/System.CommandLine.resources.dll",
-        "lib/netstandard2.0/tr/System.CommandLine.resources.dll",
-        "lib/netstandard2.0/zh-Hans/System.CommandLine.resources.dll",
-        "lib/netstandard2.0/zh-Hant/System.CommandLine.resources.dll",
-        "system.commandline.2.0.0-beta4.22272.1.nupkg.sha512",
-        "system.commandline.nuspec"
+        "CommandLine20.png",
+        "License.md",
+        "README.md",
+        "commandlineparser.2.9.1.nupkg.sha512",
+        "commandlineparser.nuspec",
+        "lib/net40/CommandLine.dll",
+        "lib/net40/CommandLine.xml",
+        "lib/net45/CommandLine.dll",
+        "lib/net45/CommandLine.xml",
+        "lib/net461/CommandLine.dll",
+        "lib/net461/CommandLine.xml",
+        "lib/netstandard2.0/CommandLine.dll",
+        "lib/netstandard2.0/CommandLine.xml"
+      ]
+    },
+    "ExtendedNumerics.BigDecimal/2025.1002.0.190": {
+      "sha512": "4JN5NydLTxTjama/hD383Mq8h2hTyVkPvpn96WuMFkiZjtnT6h/LRyRTEcMcaBIFGfE03TfWgVuv3xKVf1opkw==",
+      "type": "package",
+      "path": "extendednumerics.bigdecimal/2025.1002.0.190",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "extendednumerics.bigdecimal.2025.1002.0.190.nupkg.sha512",
+        "extendednumerics.bigdecimal.nuspec",
+        "lib/net45/ExtendedNumerics.BigDecimal.dll",
+        "lib/net45/ExtendedNumerics.BigDecimal.xml",
+        "lib/net46/ExtendedNumerics.BigDecimal.dll",
+        "lib/net46/ExtendedNumerics.BigDecimal.xml",
+        "lib/net472/ExtendedNumerics.BigDecimal.dll",
+        "lib/net472/ExtendedNumerics.BigDecimal.xml",
+        "lib/net48/ExtendedNumerics.BigDecimal.dll",
+        "lib/net48/ExtendedNumerics.BigDecimal.xml",
+        "lib/net5.0/ExtendedNumerics.BigDecimal.dll",
+        "lib/net5.0/ExtendedNumerics.BigDecimal.xml",
+        "lib/net6.0/ExtendedNumerics.BigDecimal.dll",
+        "lib/net6.0/ExtendedNumerics.BigDecimal.xml",
+        "lib/net7.0/ExtendedNumerics.BigDecimal.dll",
+        "lib/net7.0/ExtendedNumerics.BigDecimal.xml",
+        "lib/net8.0/ExtendedNumerics.BigDecimal.dll",
+        "lib/net8.0/ExtendedNumerics.BigDecimal.xml",
+        "lib/netcoreapp3.1/ExtendedNumerics.BigDecimal.dll",
+        "lib/netcoreapp3.1/ExtendedNumerics.BigDecimal.xml",
+        "lib/netstandard2.0/ExtendedNumerics.BigDecimal.dll",
+        "lib/netstandard2.0/ExtendedNumerics.BigDecimal.xml",
+        "lib/netstandard2.1/ExtendedNumerics.BigDecimal.dll",
+        "lib/netstandard2.1/ExtendedNumerics.BigDecimal.xml"
       ]
     },
     "SharpUtil/1.0.0": {
@@ -124,6 +105,8 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "CommandLineParser >= 2.9.1",
+      "ExtendedNumerics.BigDecimal >= 2025.1002.0.190",
       "SharpUtil >= 1.0.0"
     ]
   },
@@ -180,6 +163,16 @@
     "frameworks": {
       "net8.0": {
         "targetAlias": "net8.0",
+        "dependencies": {
+          "CommandLineParser": {
+            "target": "Package",
+            "version": "[2.9.1, )"
+          },
+          "ExtendedNumerics.BigDecimal": {
+            "target": "Package",
+            "version": "[2025.1002.0.190, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",
@@ -196,7 +189,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
