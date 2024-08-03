@@ -1,0 +1,12 @@
+F:\sp\SharpUtil\SharpUtil\bin\Release\net8.0\SharpUtil.deps.json
+F:\sp\SharpUtil\SharpUtil\bin\Release\net8.0\SharpUtil.dll
+F:\sp\SharpUtil\SharpUtil\bin\Release\net8.0\SharpUtil.pdb
+F:\sp\SharpUtil\SharpUtil\obj\Release\net8.0\SharpUtil.GeneratedMSBuildEditorConfig.editorconfig
+F:\sp\SharpUtil\SharpUtil\obj\Release\net8.0\SharpUtil.AssemblyInfoInputs.cache
+F:\sp\SharpUtil\SharpUtil\obj\Release\net8.0\SharpUtil.AssemblyInfo.cs
+F:\sp\SharpUtil\SharpUtil\obj\Release\net8.0\SharpUtil.csproj.CoreCompileInputs.cache
+F:\sp\SharpUtil\SharpUtil\obj\Release\net8.0\SharpUtil.sourcelink.json
+F:\sp\SharpUtil\SharpUtil\obj\Release\net8.0\SharpUtil.dll
+F:\sp\SharpUtil\SharpUtil\obj\Release\net8.0\refint\SharpUtil.dll
+F:\sp\SharpUtil\SharpUtil\obj\Release\net8.0\SharpUtil.pdb
+F:\sp\SharpUtil\SharpUtil\obj\Release\net8.0\ref\SharpUtil.dll
