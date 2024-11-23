@@ -116,6 +116,8 @@ namespace Test
             Console.WriteLine(tag.GetString("String"));
             Console.WriteLine(tag.GetFloat("Float"));
             Console.WriteLine(memoryStream2.ToArray().ToStringForEnumerable());
+   
+            Console.WriteLine(10000- float.PositiveInfinity);
 
             while (running)
             {

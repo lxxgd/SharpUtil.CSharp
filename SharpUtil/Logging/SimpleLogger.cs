@@ -30,10 +30,14 @@ public class SimpleLogger : IDisposable
         }
         catch (IOException e)
         {
+            Console.WriteLine("发生IO异常："+e.GetExceptionMessage());
+            System.Diagnostics.Debug.WriteLine("发生IO异常："+e.GetExceptionMessage());
+        }
+        catch (Exception e)
+        {
             Console.WriteLine(e.GetExceptionMessage());
             System.Diagnostics.Debug.WriteLine(e.GetExceptionMessage());
         }
-        catch { }
 
         _logWriter = TextWriter.Synchronized(new StreamWriter(new BufferedStream(new FileStream(System.IO.Path.Combine(Path, FileName), FileMode.Append, FileAccess.Write, FileShare.Read)))
         {

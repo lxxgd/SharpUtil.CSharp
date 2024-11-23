@@ -30,6 +30,7 @@
 
         public new void Enqueue(T item)
         {
+
             base.Enqueue(item);
             if (Count > Limit)
             {

@@ -15,13 +15,7 @@
         {
             RequireNonNull(array);
 
-            for (int i = 0; i < array.Length; i++)
-            {
-                if (array[i] == null)
-                    return false;
-            }
-
-            return true;
+            return array.All(t => t != null);
         }
 
         /// <summary>
@@ -34,13 +28,7 @@
         {
             RequireNonNull(enumerable);
 
-            foreach (var item in enumerable)
-            {
-                if (item == null)
-                    return false;
-            }
-
-            return true;
+            return enumerable.All(item => item != null);
         }
 
         /// <summary>
@@ -131,10 +119,7 @@
         {
             RequireNonNull(array);
 
-            if (index >= 0 && index < array.Length)
-                return true;
-            else
-                return false;
+            return index >= 0 && index < array.Length;
         }
 
         /// <summary>
@@ -151,8 +136,7 @@
 
             if (index >= 0 && index < array.Length)
                 return array;
-            else
-                throw new IndexOutOfRangeException($"The validated array index is invalid: {index}");
+            throw new IndexOutOfRangeException($"The validated array index is invalid: {index}");
         }
 
         /// <summary>
@@ -166,10 +150,7 @@
         {
             RequireNonNull(collection);
 
-            if (index >= 0 && index < collection.Count)
-                return true;
-            else
-                return false;
+            return index >= 0 && index < collection.Count;
         }
 
         /// <summary>
@@ -186,20 +167,12 @@
 
             if (index >= 0 && index < collection.Count)
                 return collection;
-            else
-                throw new IndexOutOfRangeException($"The validated collection index is invalid: {index}");
+            throw new IndexOutOfRangeException($"The validated collection index is invalid: {index}");
         }
 
-        public static bool ValidIndex<T>(this Map2D<T> map,int x,int y) 
+        public static bool ValidIndex<T>(this Map2D<T> map,int x,int y)
         {
-            if (x >= 0 && x < map.Width && y >= 0 && y < map.Height)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return x >= 0 && x < map.Width && y >= 0 && y < map.Height;
         }
         
         public static Map2D<T> ValidIndexWithException<T>(this Map2D<T> map, int x, int y)
@@ -208,10 +181,8 @@
             {
                 return map;
             }
-            else
-            {
-                throw new IndexOutOfRangeException($"The validated map index is invalid: ({x},{y})");
-            }
+
+            throw new IndexOutOfRangeException($"The validated map index is invalid: ({x},{y})");
         }
 
         public static bool IsValid(this float x)
